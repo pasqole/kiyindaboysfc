@@ -7,7 +7,7 @@
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <title>KBFC Member Verify</title>
-<link rel="manifest" href="/verify/manifest.json">
+<link rel="manifest" href="manifest.json">
 <style>
   :root {
     --navy:    #1B2A4A;
@@ -180,7 +180,7 @@
 
 <footer>Kiyinda Boys FC · FUFA Big League · admin@kiyindaboysfc.com</footer>
 
-<script src="/verify/members.js"></script>
+<script src="members.js"></script>
 <script>
 const list     = document.getElementById('list');
 const search   = document.getElementById('search');
@@ -225,7 +225,7 @@ function render(query) {
   filtered.forEach(([id, m]) => {
     const a = document.createElement('a');
     a.className = 'member-card';
-    a.href = `/verify/${id}`;
+    a.href = `${id}/`;
     a.innerHTML = `
       <div class="id-badge">${id}</div>
       <div class="member-info">
@@ -242,7 +242,7 @@ render('');
 
 // Register service worker
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js').catch(console.warn);
+  navigator.serviceWorker.register('../sw.js').catch(console.warn);
 }
 </script>
 </body>
