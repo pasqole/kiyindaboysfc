@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1B2A4A">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<title>KBFC Member Verify</title>
+<link rel="manifest" href="/verify/manifest.json">
+<style>
+  :root {
+    --navy:    #1B2A4A;
+    --navydk:  #131E35;
+    --red:     #CC2229;
+    --white:   #FFFFFF;
+    --offwhite:#EEF1F7;
+    --silver:  #C8D0DF;
+    --muted:   #7B90B8;
+    --active:  #22863A;
+    --activebg:#D4EDDA;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html, body {
+    height: 100%;
+    background: var(--navy);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: var(--white);
+  }
+
+  body {
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── Header ─────────────────────────────────────────────────── */
+  header {
+    background: var(--navydk);
+    border-bottom: 3px solid var(--red);
+    padding: 16px 20px 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+  }
+
+  .logo-ring {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(255,255,255,.25);
+    background: rgba(255,255,255,.08);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 11px; font-weight: 800; letter-spacing: .04em;
+    flex-shrink: 0;
+  }
+
+  .header-text h1 {
+    font-size: 16px; font-weight: 700; letter-spacing: .02em;
+  }
+  .header-text p {
+    font-size: 11px; color: var(--muted); margin-top: 1px;
+  }
+
+  .offline-badge {
+    margin-left: auto;
+    font-size: 10px; font-weight: 600; letter-spacing: .08em;
+    padding: 3px 8px; border-radius: 20px;
+    background: rgba(255,255,255,.1); color: var(--silver);
+    display: none;
+  }
+  .offline-badge.show { display: block; }
+
+  /* ── Search ─────────────────────────────────────────────────── */
+  .search-wrap {
+    padding: 20px 20px 0;
+    flex-shrink: 0;
+  }
+
+  .search-input {
+    width: 100%;
+    background: rgba(255,255,255,.08);
+    border: 1.5px solid rgba(255,255,255,.15);
+    border-radius: 10px;
+    padding: 13px 16px;
+    font-size: 16px;
+    color: var(--white);
+    outline: none;
+    transition: border-color .15s;
+    -webkit-appearance: none;
+  }
+  .search-input::placeholder { color: var(--muted); }
+  .search-input:focus { border-color: var(--red); }
+
+  .search-hint {
+    font-size: 12px; color: var(--muted);
+    margin-top: 8px; padding-left: 4px;
+  }
+
+  /* ── Member list ─────────────────────────────────────────────── */
+  .list-wrap {
+    flex: 1; overflow-y: auto;
+    padding: 16px 20px 20px;
+    display: flex; flex-direction: column; gap: 10px;
+  }
+
+  .member-card {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 12px;
+    padding: 14px 16px;
+    display: flex; align-items: center; gap: 14px;
+    cursor: pointer;
+    transition: background .12s;
+    text-decoration: none; color: inherit;
+  }
+  .member-card:active { background: rgba(255,255,255,.12); }
+
+  .id-badge {
+    background: var(--navy);
+    border: 1px solid rgba(255,255,255,.15);
+    border-radius: 6px;
+    padding: 4px 8px;
+    font-size: 11px; font-weight: 700;
+    font-family: 'Courier New', monospace;
+    letter-spacing: .06em;
+    color: var(--silver);
+    flex-shrink: 0;
+  }
+
+  .member-info { flex: 1; }
+  .member-name { font-size: 15px; font-weight: 600; }
+  .member-sub { font-size: 12px; color: var(--muted); margin-top: 2px; }
+
+  .status-dot {
+    width: 10px; height: 10px; border-radius: 50%;
+    background: var(--active); flex-shrink: 0;
+  }
+
+  .no-results {
+    text-align: center; padding: 40px 20px;
+    color: var(--muted); font-size: 14px;
+    display: none;
+  }
+  .no-results.show { display: block; }
+
+  /* ── Footer ─────────────────────────────────────────────────── */
+  footer {
+    text-align: center;
+    padding: 12px 20px;
+    font-size: 11px; color: var(--muted);
+    border-top: 1px solid rgba(255,255,255,.06);
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-ring">KBFC</div>
+  <div class="header-text">
+    <h1>Member Verification</h1>
+    <p>Ultras Season Ticket 2026/27</p>
+  </div>
+  <div class="offline-badge" id="offlineBadge">Offline</div>
+</header>
+
+<div class="search-wrap">
+  <input class="search-input" id="search"
+    type="search" placeholder="Search name or member ID…"
+    autocomplete="off" autocorrect="off" spellcheck="false">
+  <div class="search-hint">Tap any member to verify their ticket</div>
+</div>
+
+<div class="list-wrap" id="list"></div>
+<div class="no-results" id="noResults">No member found for "<span id="noTerm"></span>"</div>
+
+<footer>Kiyinda Boys FC · FUFA Big League · admin@kiyindaboysfc.com</footer>
+
+<script src="/verify/members.js"></script>
+<script>
+const list     = document.getElementById('list');
+const search   = document.getElementById('search');
+const noRes    = document.getElementById('noResults');
+const noTerm   = document.getElementById('noTerm');
+const badge    = document.getElementById('offlineBadge');
+
+// Offline indicator
+function updateOnline() {
+  badge.classList.toggle('show', !navigator.onLine);
+}
+window.addEventListener('online', updateOnline);
+window.addEventListener('offline', updateOnline);
+updateOnline();
+
+// Render list
+function render(query) {
+  const q = (query || '').toLowerCase().trim();
+  const members = window.KBFC_MEMBERS;
+  const entries = Object.entries(members);
+
+  const filtered = q
+    ? entries.filter(([id, m]) =>
+        id.toLowerCase().includes(q) ||
+        m.name.toLowerCase().includes(q) ||
+        (m.phone && m.phone.includes(q))
+      )
+    : entries;
+
+  list.innerHTML = '';
+
+  if (!filtered.length) {
+    noTerm.textContent = query;
+    noRes.classList.add('show');
+    list.style.display = 'none';
+    return;
+  }
+
+  noRes.classList.remove('show');
+  list.style.display = 'flex';
+
+  filtered.forEach(([id, m]) => {
+    const a = document.createElement('a');
+    a.className = 'member-card';
+    a.href = `/verify/${id}`;
+    a.innerHTML = `
+      <div class="id-badge">${id}</div>
+      <div class="member-info">
+        <div class="member-name">${m.name}</div>
+        <div class="member-sub">${m.tier} · ${m.valid}</div>
+      </div>
+      <div class="status-dot" title="${m.status}"></div>`;
+    list.appendChild(a);
+  });
+}
+
+search.addEventListener('input', e => render(e.target.value));
+render('');
+
+// Register service worker
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js').catch(console.warn);
+}
+</script>
+</body>
+</html>
