@@ -1,138 +1,29 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#1B2A4A">
-<title>KBFC008 — KBFC Verify</title>
-<link rel="manifest" href="/verify/manifest.json">
-<style>
-  :root {
-    --navy:#1B2A4A; --navydk:#131E35; --red:#CC2229;
-    --white:#FFFFFF; --offwhite:#EEF1F7; --silver:#C8D0DF;
-    --muted:#7B90B8; --active:#22863A; --activebg:#D4EDDA;
-  }
-  *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
-  html,body {
-    height:100%; background:var(--navy);
-    font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
-    color:var(--white);
-    padding-top:env(safe-area-inset-top,0px);
-    padding-bottom:env(safe-area-inset-bottom,0px);
-  }
-  body { min-height:100vh; display:flex; flex-direction:column; }
-
-  header {
-    background:var(--navydk); border-bottom:3px solid var(--red);
-    padding:16px 20px 14px; display:flex; align-items:center; gap:12px; flex-shrink:0;
-  }
-  .back {
-    color:var(--silver); font-size:14px; text-decoration:none;
-    display:flex; align-items:center; gap:6px; padding:4px;
-  }
-  .back:active { opacity:.7; }
-  header h1 { font-size:16px; font-weight:700; }
-
-  .main { flex:1; padding:28px 20px; display:flex; flex-direction:column; gap:20px; }
-
-  /* Status card */
-  .status-card {
-    border-radius:16px; padding:24px 20px;
-    display:flex; align-items:center; gap:16px;
-  }
-  .status-active  { background:var(--activebg); }
-  .status-inactive{ background:#f8d7da; }
-
-  .status-icon {
-    font-size:36px; flex-shrink:0; line-height:1;
-  }
-  .status-text h2 { font-size:22px; font-weight:700; }
-  .status-text h2.active   { color:var(--active); }
-  .status-text h2.inactive { color:#721c24; }
-  .status-text p  { font-size:13px; margin-top:3px; }
-  .status-text p.active   { color:#155724; }
-  .status-text p.inactive { color:#721c24; }
-
-  /* Member details */
-  .detail-card {
-    background:rgba(255,255,255,.06);
-    border:1px solid rgba(255,255,255,.1);
-    border-radius:14px; overflow:hidden;
-  }
-  .detail-row {
-    display:flex; align-items:flex-start;
-    padding:14px 18px; gap:16px;
-    border-bottom:1px solid rgba(255,255,255,.06);
-  }
-  .detail-row:last-child { border-bottom:none; }
-  .detail-label {
-    font-size:11px; font-weight:600; color:var(--muted);
-    text-transform:uppercase; letter-spacing:.06em;
-    width:80px; flex-shrink:0; padding-top:1px;
-  }
-  .detail-value { font-size:15px; font-weight:600; flex:1; }
-  .detail-value.id { font-family:'Courier New',monospace; font-size:16px; letter-spacing:.05em; }
-
-  /* Tier badge */
-  .tier-pill {
-    display:inline-block; background:var(--red); color:#fff;
-    font-size:11px; font-weight:700; letter-spacing:.1em;
-    padding:4px 10px; border-radius:20px;
-  }
-
-  footer {
-    text-align:center; padding:16px 20px;
-    font-size:11px; color:var(--muted);
-    border-top:1px solid rgba(255,255,255,.06); flex-shrink:0;
-  }
-</style>
-</head>
-<body>
-
-<header>
-  <a class="back" href="/verify/">← All members</a>
-  <h1 style="margin-left:auto;color:var(--muted);font-size:13px;font-weight:500">KBFC008</h1>
-</header>
-
-<div class="main">
-  <div class="status-card status-active">
-    <div class="status-icon">✅</div>
-    <div class="status-text">
-      <h2 class="active">Valid member</h2>
-      <p class="active">Season ticket confirmed — allow entry</p>
-    </div>
-  </div>
-
-  <div class="detail-card">
-    <div class="detail-row">
-      <div class="detail-label">Name</div>
-      <div class="detail-value">Isaac Ntege</div>
-    </div>
-    <div class="detail-row">
-      <div class="detail-label">Member ID</div>
-      <div class="detail-value id">KBFC008</div>
-    </div>
-    <div class="detail-row">
-      <div class="detail-label">Tier</div>
-      <div class="detail-value"><span class="tier-pill">Ultras</span></div>
-    </div>
-    <div class="detail-row">
-      <div class="detail-label">Valid</div>
-      <div class="detail-value">Sep 2026 – Jun 2027</div>
-    </div>
-    <div class="detail-row">
-      <div class="detail-label">Phone</div>
-      <div class="detail-value">0706078371</div>
-    </div>
-  </div>
-</div>
-
-<footer>Kiyinda Boys FC · FUFA Big League · 0774 646 502</footer>
-
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#1B2A4A"><title>KBFC008 - KBFC Verify</title>
+<style>:root{--navy:#1B2A4A;--navydk:#131E35;--red:#CC2229;--white:#fff;--silver:#C8D0DF;--muted:#7B90B8;--ok:#22863A;--okbg:#D4EDDA;--okdark:#155724;--errbg:#F8D7DA;--errdark:#721c24;}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html,body{height:100%;background:var(--navy);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--white);padding-top:env(safe-area-inset-top,0px);}body{min-height:100vh;display:flex;flex-direction:column;}header{background:var(--navydk);border-bottom:3px solid var(--red);padding:14px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0;}.back{color:var(--silver);font-size:14px;text-decoration:none;}header span{margin-left:auto;font-size:12px;color:var(--muted);font-family:monospace;}.main{flex:1;padding:20px 16px;display:flex;flex-direction:column;gap:14px;overflow-y:auto;}.status-card{border-radius:16px;padding:20px 18px;display:flex;align-items:center;gap:14px;}.status-ok{background:var(--okbg);}.status-err{background:var(--errbg);}.status-icon{font-size:32px;flex-shrink:0;}.status-h{font-size:20px;font-weight:700;}.status-p{font-size:12px;margin-top:3px;}.detail-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:13px;overflow:hidden;}.detail-row{display:flex;align-items:center;padding:12px 15px;gap:14px;border-bottom:1px solid rgba(255,255,255,.06);}.detail-row:last-child{border-bottom:none;}.dl{font-size:10px;font-weight:600;color:var(--muted);width:72px;flex-shrink:0;text-transform:uppercase;}.dv{font-size:14px;font-weight:600;flex:1;}.tier-pill{background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;}.game-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:13px;padding:14px 16px;}.game-label{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;}.game-name{font-size:15px;font-weight:700;}.game-date{font-size:12px;color:var(--muted);margin-top:2px;}.checkin-btn{background:var(--ok);color:#fff;border:none;border-radius:12px;padding:16px;font-size:16px;font-weight:700;cursor:pointer;width:100%;font-family:inherit;}.checkin-btn:disabled{background:rgba(255,255,255,.12);color:var(--muted);cursor:default;}.warn-box{background:rgba(248,215,218,.1);border:1px solid rgba(204,34,41,.3);border-radius:12px;padding:14px 16px;font-size:13px;color:#f8d7da;line-height:1.6;}.ts{font-size:12px;color:var(--silver);font-family:monospace;}footer{text-align:center;padding:14px;font-size:11px;color:var(--muted);border-top:1px solid rgba(255,255,255,.06);flex-shrink:0;}.loading{text-align:center;padding:20px;color:var(--muted);}</style></head>
+<body><header><a class="back" href="../">&#8592; All members</a><span>KBFC008</span></header>
+<div class="main" id="main"><div class="loading">Loading...</div></div>
+<footer>Kiyinda Boys FC &middot; FUFA Big League &middot; 0774 646 502</footer>
 <script>
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js').catch(console.warn);
+const SB_URL="https://trxosccbhjxxyymdxqxk.supabase.co",SB_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRyeG9zY2NiaGp4eHl5bWR4cXhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEzMTEzODUsImV4cCI6MjEwNjg4NzM4NX0.hQWQUgOsEWmwKhEAV_VfT6GlVCHttIznPOu4XihoBG4",MID="KBFC008",NAME="Isaac Ntege",PHONE="0706078371";
+const FIXTURES=[{"id":"MD1","date":"2026-09-27","label":"MD1 vs Onduparaka FC"},{"id":"MD3","date":"2026-10-11","label":"MD3 vs Pakwach Young Stars"},{"id":"MD5","date":"2026-10-25","label":"MD5 vs SC Volcanoes"},{"id":"MD7","date":"2026-11-08","label":"MD7 vs Amus College FC"},{"id":"MD9","date":"2026-11-22","label":"MD9 vs Calvary FC"},{"id":"MD11","date":"2026-12-06","label":"MD11 vs Iganga United FC"}];
+function today(){return new Date().toISOString().slice(0,10);}
+function detectGame(){const t=today();return FIXTURES.find(f=>f.date===t)||FIXTURES.filter(f=>f.date<=t).sort((a,b)=>b.date.localeCompare(a.date))[0]||FIXTURES[0];}
+function fmt(iso){if(!iso)return"--";return new Date(iso).toLocaleTimeString("en-UG",{hour:"2-digit",minute:"2-digit",second:"2-digit"});}
+function fmtDate(iso){return new Date(iso+"T12:00:00").toLocaleDateString("en-UG",{weekday:"long",day:"numeric",month:"long",year:"numeric"});}
+async function sbGet(q){const r=await fetch(SB_URL+"/rest/v1/checkins?"+q,{headers:{apikey:SB_KEY,Authorization:"Bearer "+SB_KEY}});return r.json();}
+async function sbPost(d){await fetch(SB_URL+"/rest/v1/checkins",{method:"POST",headers:{apikey:SB_KEY,Authorization:"Bearer "+SB_KEY,"Content-Type":"application/json",Prefer:"return=representation"},body:JSON.stringify(d)});}
+async function render(){
+  const game=detectGame();
+  const main=document.getElementById("main");
+  let checkin=null;
+  try{const rows=await sbGet("member_id=eq."+MID+"&game_id=eq."+game.id+"&select=*&limit=1");if(Array.isArray(rows)&&rows.length)checkin=rows[0];}catch(e){}
+  if(checkin){
+    main.innerHTML="<div class='status-card status-err'><div class='status-icon'>&#128683;</div><div><div class='status-h' style='color:var(--errdark)'>Already used</div><div class='status-p' style='color:var(--errdark)'>Ticket already scanned for this game</div></div></div><div class='detail-card'><div class='detail-row'><div class='dl'>Name</div><div class='dv'>"+NAME+"</div></div><div class='detail-row'><div class='dl'>Member ID</div><div class='dv' style='font-family:monospace'>"+MID+"</div></div><div class='detail-row'><div class='dl'>Game</div><div class='dv'>"+game.label+"</div></div><div class='detail-row'><div class='dl'>Entry time</div><div class='dv ts'>"+fmt(checkin.checked_in_at)+"</div></div></div><div class='warn-box'>&#9888; <strong>Do not allow entry.</strong> Already scanned today at "+fmt(checkin.checked_in_at)+".</div>";
+  }else{
+    main.innerHTML="<div class='status-card status-ok'><div class='status-icon'>&#9989;</div><div><div class='status-h' style='color:var(--ok)'>Valid member</div><div class='status-p' style='color:var(--okdark)'>Season ticket confirmed - allow entry</div></div></div><div class='detail-card'><div class='detail-row'><div class='dl'>Name</div><div class='dv'>"+NAME+"</div></div><div class='detail-row'><div class='dl'>Member ID</div><div class='dv' style='font-family:monospace'>"+MID+"</div></div><div class='detail-row'><div class='dl'>Tier</div><div class='dv'><span class='tier-pill'>Ultras</span></div></div><div class='detail-row'><div class='dl'>Valid</div><div class='dv'>Sep 2026 - Jun 2027</div></div><div class='detail-row'><div class='dl'>Phone</div><div class='dv'>"+PHONE+"</div></div></div><div class='game-card'><div class='game-label'>Today's fixture</div><div class='game-name'>"+game.label+"</div><div class='game-date'>"+fmtDate(game.date)+"</div></div><button class='checkin-btn' id='btn' onclick='checkIn(""+game.id+"",""+game.label+"")'>&#10003; Check in "+NAME.split(" ")[0]+"</button>";
+  }
 }
-</script>
-</body>
-</html>
+async function checkIn(gid,glabel){const btn=document.getElementById("btn");btn.disabled=true;btn.textContent="Recording...";try{await sbPost({member_id:MID,member_name:NAME,game_id:gid,game_label:glabel});}catch(e){}render();}
+render();
+</script></body></html>
