@@ -58,7 +58,7 @@ footer{text-align:center;padding:16px;font-size:11px;color:var(--muted);border-t
     <div class="detail-row"><div class="dl">PHONE</div><div class="dv">0752050875</div></div>
   </div>
   <div class="fixture-card">
-    <div class="fx-label">TODAY'S FIXTURE</div>
+    <div class="fx-label" id="fx-label">NEXT FIXTURE</div>
     <div class="fx-name" id="fx-name">Loading...</div>
     <div class="fx-date" id="fx-date"></div>
   </div>
@@ -102,6 +102,7 @@ async function doCheckIn(game){
 }
 async function init(){
   const game=detectGame();
+  document.getElementById('fx-label').textContent=game.date===today()?"TODAY'S FIXTURE":"NEXT FIXTURE";
   document.getElementById('fx-name').textContent=game.label;
   document.getElementById('fx-date').textContent=fmtDate(game.date);
   const btnArea=document.getElementById('btn-area');
