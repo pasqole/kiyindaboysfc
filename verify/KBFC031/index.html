@@ -29,7 +29,7 @@ const SB_URL="https://trxosccbhjxxyymdxqxk.supabase.co",SB_KEY="eyJhbGciOiJIUzI1
 const FIXTURES=[{"id":"MD1","date":"2026-09-27","label":"MD1 vs Onduparaka FC"},{"id":"MD3","date":"2026-10-11","label":"MD3 vs Pakwach Young Stars"},{"id":"MD5","date":"2026-10-25","label":"MD5 vs SC Volcanoes"},{"id":"MD7","date":"2026-11-08","label":"MD7 vs Amus College FC"},{"id":"MD9","date":"2026-11-22","label":"MD9 vs Calvary FC"},{"id":"MD11","date":"2026-12-06","label":"MD11 vs Iganga United FC"}];
 function today(){return new Date().toISOString().slice(0,10);}
 function detectGame(){const t=today();return FIXTURES.find(f=>f.date===t)||FIXTURES.filter(f=>f.date<=t).sort((a,b)=>b.date.localeCompare(a.date))[0]||FIXTURES[0];}
-function fmt(iso){if(!iso)return"--";return new Date(iso).toLocaleTimeString("en-UG",{hour:"2-digit",minute:"2-digit",second:"2-digit"});}
+function fmt(iso){if(!iso||iso==="null"||iso==="undefined")return"--";try{const d=new Date(iso);return isNaN(d)?iso:d.toLocaleTimeString("en-UG",{hour:"2-digit",minute:"2-digit",second:"2-digit"});}catch(e){return iso;}}
 function fmtDate(iso){return new Date(iso+"T12:00:00").toLocaleDateString("en-UG",{weekday:"long",day:"numeric",month:"long",year:"numeric"});}
 async function sbGet(q){const r=await fetch(SB_URL+"/rest/v1/checkins?"+q,{headers:{apikey:SB_KEY,Authorization:"Bearer "+SB_KEY}});return r.json();}
 async function sbPost(d){return fetch(SB_URL+"/rest/v1/checkins",{method:"POST",headers:{apikey:SB_KEY,Authorization:"Bearer "+SB_KEY,"Content-Type":"application/json",Prefer:"return=representation"},body:JSON.stringify(d)});}
