@@ -1,8 +1,28 @@
 <!DOCTYPE html>
 <html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#1B2A4A"><title>KBFC005 - KBFC Verify</title>
-<style>:root{--navy:#1B2A4A;--navydk:#131E35;--red:#CC2229;--white:#fff;--silver:#C8D0DF;--muted:#7B90B8;--ok:#22863A;--okbg:#D4EDDA;--okdark:#155724;--errbg:#F8D7DA;--errdark:#721c24;}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html,body{height:100%;background:var(--navy);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--white);padding-top:env(safe-area-inset-top,0px);}body{min-height:100vh;display:flex;flex-direction:column;}header{background:var(--navydk);border-bottom:3px solid var(--red);padding:14px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0;}.back{color:var(--silver);font-size:14px;text-decoration:none;}header span{margin-left:auto;font-size:12px;color:var(--muted);font-family:monospace;}.main{flex:1;padding:20px 16px;display:flex;flex-direction:column;gap:14px;overflow-y:auto;}.status-card{border-radius:16px;padding:20px 18px;display:flex;align-items:center;gap:14px;}.status-ok{background:var(--okbg);}.status-err{background:var(--errbg);}.status-icon{font-size:32px;flex-shrink:0;}.status-h{font-size:20px;font-weight:700;}.status-p{font-size:12px;margin-top:3px;}.detail-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:13px;overflow:hidden;}.detail-row{display:flex;align-items:center;padding:12px 15px;gap:14px;border-bottom:1px solid rgba(255,255,255,.06);}.detail-row:last-child{border-bottom:none;}.dl{font-size:10px;font-weight:600;color:var(--muted);width:72px;flex-shrink:0;text-transform:uppercase;}.dv{font-size:14px;font-weight:600;flex:1;}.tier-pill{background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;}.game-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:13px;padding:14px 16px;}.game-label{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;}.game-name{font-size:15px;font-weight:700;}.game-date{font-size:12px;color:var(--muted);margin-top:2px;}.checkin-btn{background:var(--ok);color:#fff;border:none;border-radius:12px;padding:16px;font-size:16px;font-weight:700;cursor:pointer;width:100%;font-family:inherit;}.checkin-btn:disabled{background:rgba(255,255,255,.12);color:var(--muted);cursor:default;}.warn-box{background:rgba(248,215,218,.1);border:1px solid rgba(204,34,41,.3);border-radius:12px;padding:14px 16px;font-size:13px;color:#f8d7da;line-height:1.6;}.ts{font-size:12px;color:var(--silver);font-family:monospace;}footer{text-align:center;padding:14px;font-size:11px;color:var(--muted);border-top:1px solid rgba(255,255,255,.06);flex-shrink:0;}.loading{text-align:center;padding:20px;color:var(--muted);}</style></head>
+<style>:root{--navy:#1B2A4A;--navydk:#131E35;--red:#CC2229;--white:#fff;--silver:#C8D0DF;--muted:#7B90B8;--ok:#22863A;--okbg:#D4EDDA;--okdark:#155724;--errbg:#F8D7DA;--errdark:#721c24;}*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}html,body{height:100%;background:var(--navy);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--white);padding-top:env(safe-area-inset-top,0px);}body{min-height:100vh;display:flex;flex-direction:column;}header{background:var(--navydk);border-bottom:3px solid var(--red);padding:14px 16px;display:flex;align-items:center;gap:10px;flex-shrink:0;}.back{color:var(--silver);font-size:14px;text-decoration:none;}header span{margin-left:auto;font-size:12px;color:var(--muted);font-family:monospace;}.main{flex:1;padding:20px 16px;display:flex;flex-direction:column;gap:14px;}.status-card{border-radius:16px;padding:20px 18px;display:flex;align-items:center;gap:14px;}.status-ok{background:var(--okbg);}.status-err{background:var(--errbg);}.status-icon{font-size:32px;flex-shrink:0;}.status-h{font-size:20px;font-weight:700;}.status-p{font-size:12px;margin-top:3px;}.detail-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:13px;overflow:hidden;}.detail-row{display:flex;align-items:center;padding:12px 15px;gap:14px;border-bottom:1px solid rgba(255,255,255,.06);}.detail-row:last-child{border-bottom:none;}.dl{font-size:10px;font-weight:600;color:var(--muted);width:72px;flex-shrink:0;text-transform:uppercase;}.dv{font-size:14px;font-weight:600;flex:1;}.tier-pill{background:var(--red);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;}.game-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:13px;padding:14px 16px;}.game-label{font-size:11px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-bottom:6px;}.game-name{font-size:15px;font-weight:700;}.game-date{font-size:12px;color:var(--muted);margin-top:2px;}.checkin-btn{background:var(--ok);color:#fff;border:none;border-radius:12px;padding:16px;font-size:16px;font-weight:700;cursor:pointer;width:100%;font-family:inherit;margin-top:4px;}.checkin-btn:disabled{background:rgba(255,255,255,.12);color:var(--muted);cursor:default;}.warn-box{background:rgba(248,215,218,.1);border:1px solid rgba(204,34,41,.3);border-radius:12px;padding:14px 16px;font-size:13px;color:#f8d7da;line-height:1.6;}.ts{font-size:12px;color:var(--silver);font-family:monospace;}footer{text-align:center;padding:14px;font-size:11px;color:var(--muted);border-top:1px solid rgba(255,255,255,.06);flex-shrink:0;}</style></head>
 <body><header><a class="back" href="../">&#8592; All members</a><span>KBFC005</span></header>
-<div class="main" id="main"><div class="loading">Loading...</div></div>
+<div class="main" id="main">
+  <div class="status-card status-ok">
+    <div class="status-icon">&#9989;</div>
+    <div><div class="status-h" style="color:var(--ok)">Valid member</div>
+    <div class="status-p" style="color:var(--okdark)">Season ticket confirmed - allow entry</div></div>
+  </div>
+  <div class="detail-card">
+    <div class="detail-row"><div class="dl">Name</div><div class="dv">Anthony Okello</div></div>
+    <div class="detail-row"><div class="dl">Member ID</div><div class="dv" style="font-family:monospace">KBFC005</div></div>
+    <div class="detail-row"><div class="dl">Tier</div><div class="dv"><span class="tier-pill">Ultras</span></div></div>
+    <div class="detail-row"><div class="dl">Valid</div><div class="dv">Sep 2026 - Jun 2027</div></div>
+    <div class="detail-row"><div class="dl">Phone</div><div class="dv">0753261772</div></div>
+  </div>
+  <div class="game-card" id="gameCard">
+    <div class="game-label">Today's fixture</div>
+    <div class="game-name" id="gameName">Detecting...</div>
+    <div class="game-date" id="gameDate"></div>
+  </div>
+  <button class="checkin-btn" id="btn">&#10003; Check in Anthony</button>
+  <div id="warnBox"></div>
+</div>
 <footer>Kiyinda Boys FC &middot; FUFA Big League &middot; 0774 646 502</footer>
 <script>
 const SB_URL="https://trxosccbhjxxyymdxqxk.supabase.co",SB_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRyeG9zY2NiaGp4eHl5bWR4cXhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEzMTEzODUsImV4cCI6MjEwNjg4NzM4NX0.hQWQUgOsEWmwKhEAV_VfT6GlVCHttIznPOu4XihoBG4",MID="KBFC005",NAME="Anthony Okello",PHONE="0753261772";
@@ -12,18 +32,33 @@ function detectGame(){const t=today();return FIXTURES.find(f=>f.date===t)||FIXTU
 function fmt(iso){if(!iso)return"--";return new Date(iso).toLocaleTimeString("en-UG",{hour:"2-digit",minute:"2-digit",second:"2-digit"});}
 function fmtDate(iso){return new Date(iso+"T12:00:00").toLocaleDateString("en-UG",{weekday:"long",day:"numeric",month:"long",year:"numeric"});}
 async function sbGet(q){const r=await fetch(SB_URL+"/rest/v1/checkins?"+q,{headers:{apikey:SB_KEY,Authorization:"Bearer "+SB_KEY}});return r.json();}
-async function sbPost(d){await fetch(SB_URL+"/rest/v1/checkins",{method:"POST",headers:{apikey:SB_KEY,Authorization:"Bearer "+SB_KEY,"Content-Type":"application/json",Prefer:"return=representation"},body:JSON.stringify(d)});}
-async function render(){
-  const game=detectGame();
-  const main=document.getElementById("main");
-  let checkin=null;
-  try{const rows=await sbGet("member_id=eq."+MID+"&game_id=eq."+game.id+"&select=*&limit=1");if(Array.isArray(rows)&&rows.length)checkin=rows[0];}catch(e){}
-  if(checkin){
-    main.innerHTML="<div class='status-card status-err'><div class='status-icon'>&#128683;</div><div><div class='status-h' style='color:var(--errdark)'>Already used</div><div class='status-p' style='color:var(--errdark)'>Ticket already scanned for this game</div></div></div><div class='detail-card'><div class='detail-row'><div class='dl'>Name</div><div class='dv'>"+NAME+"</div></div><div class='detail-row'><div class='dl'>Member ID</div><div class='dv' style='font-family:monospace'>"+MID+"</div></div><div class='detail-row'><div class='dl'>Game</div><div class='dv'>"+game.label+"</div></div><div class='detail-row'><div class='dl'>Entry time</div><div class='dv ts'>"+fmt(checkin.checked_in_at)+"</div></div></div><div class='warn-box'>&#9888; <strong>Do not allow entry.</strong> Already scanned today at "+fmt(checkin.checked_in_at)+".</div>";
-  }else{
-    main.innerHTML="<div class='status-card status-ok'><div class='status-icon'>&#9989;</div><div><div class='status-h' style='color:var(--ok)'>Valid member</div><div class='status-p' style='color:var(--okdark)'>Season ticket confirmed - allow entry</div></div></div><div class='detail-card'><div class='detail-row'><div class='dl'>Name</div><div class='dv'>"+NAME+"</div></div><div class='detail-row'><div class='dl'>Member ID</div><div class='dv' style='font-family:monospace'>"+MID+"</div></div><div class='detail-row'><div class='dl'>Tier</div><div class='dv'><span class='tier-pill'>Ultras</span></div></div><div class='detail-row'><div class='dl'>Valid</div><div class='dv'>Sep 2026 - Jun 2027</div></div><div class='detail-row'><div class='dl'>Phone</div><div class='dv'>"+PHONE+"</div></div></div><div class='game-card'><div class='game-label'>Today's fixture</div><div class='game-name'>"+game.label+"</div><div class='game-date'>"+fmtDate(game.date)+"</div></div><button class='checkin-btn' id='btn' onclick='checkIn(""+game.id+"",""+game.label+"")'>&#10003; Check in "+NAME.split(" ")[0]+"</button>";
-  }
+async function sbPost(d){return fetch(SB_URL+"/rest/v1/checkins",{method:"POST",headers:{apikey:SB_KEY,Authorization:"Bearer "+SB_KEY,"Content-Type":"application/json",Prefer:"return=representation"},body:JSON.stringify(d)});}
+
+const game=detectGame();
+document.getElementById("gameName").textContent=game.label;
+document.getElementById("gameDate").textContent=fmtDate(game.date);
+const btn=document.getElementById("btn");
+
+async function checkStatus(){
+  try{
+    const rows=await sbGet("member_id=eq."+MID+"&game_id=eq."+game.id+"&select=*&limit=1");
+    if(Array.isArray(rows)&&rows.length){
+      const checkin=rows[0];
+      btn.disabled=true;
+      btn.textContent="Already checked in at "+fmt(checkin.checked_in_at);
+      btn.style.background="var(--errdark)";
+      document.getElementById("warnBox").innerHTML="<div class='warn-box'>&#9888; <strong>Do not allow entry.</strong> Already scanned today at "+fmt(checkin.checked_in_at)+".</div>";
+    }
+  }catch(e){}
 }
-async function checkIn(gid,glabel){const btn=document.getElementById("btn");btn.disabled=true;btn.textContent="Recording...";try{await sbPost({member_id:MID,member_name:NAME,game_id:gid,game_label:glabel});}catch(e){}render();}
-render();
+
+btn.onclick=async function(){
+  btn.disabled=true;btn.textContent="Recording...";
+  try{await sbPost({member_id:MID,member_name:NAME,game_id:game.id,game_label:game.label});}catch(e){}
+  checkStatus();
+  btn.textContent="&#10003; Checked in!";
+  btn.style.opacity="0.7";
+};
+
+checkStatus();
 </script></body></html>
