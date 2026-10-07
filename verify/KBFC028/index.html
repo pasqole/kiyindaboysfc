@@ -17,7 +17,7 @@
   </div>
   <div class="game-card" id="gameCard">
     <div class="game-label">Today's fixture</div>
-    <div class="game-name" id="gameName">Detecting...</div>
+    <div class="game-name" id="gameName"></div>
     <div class="game-date" id="gameDate"></div>
   </div>
   <button class="checkin-btn" id="btn">&#10003; Check in Vian</button>
@@ -34,7 +34,7 @@ function fmtDate(iso){return new Date(iso+"T12:00:00").toLocaleDateString("en-UG
 async function sbGet(q){const r=await fetch(SB_URL+"/rest/v1/checkins?"+q,{headers:{apikey:SB_KEY,Authorization:"Bearer "+SB_KEY}});return r.json();}
 async function sbPost(d){return fetch(SB_URL+"/rest/v1/checkins",{method:"POST",headers:{apikey:SB_KEY,Authorization:"Bearer "+SB_KEY,"Content-Type":"application/json",Prefer:"return=representation"},body:JSON.stringify(d)});}
 
-const game=detectGame();
+const game=detectGame(); if(!game){return;}
 document.getElementById("gameName").textContent=game.label;
 document.getElementById("gameDate").textContent=fmtDate(game.date);
 const btn=document.getElementById("btn");
