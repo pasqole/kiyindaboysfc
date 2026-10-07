@@ -102,10 +102,15 @@ async function doCheckIn(game){
 }
 async function init(){
   const game=detectGame();
-  document.getElementById('fx-label').textContent=game.date===today()?"TODAY'S FIXTURE":"NEXT FIXTURE";
+  const isMatchday=game.date===today();
+  document.getElementById('fx-label').textContent=isMatchday?"TODAY'S FIXTURE":"NEXT FIXTURE";
   document.getElementById('fx-name').textContent=game.label;
   document.getElementById('fx-date').textContent=fmtDate(game.date);
   const btnArea=document.getElementById('btn-area');
+  if(!isMatchday){
+    btnArea.innerHTML='<button class="btn btn-done" disabled>No home game today</button>';
+    return;
+  }
   btnArea.innerHTML='<button class="btn btn-checkin" id="cibtn" disabled>Checking...</button>';
   const btn=document.getElementById('cibtn');
   const existing=await checkExisting(game.id);
