@@ -6,35 +6,59 @@
 <meta name="theme-color" content="#1B2A4A">
 <title>KBFC023 - KBFC Verify</title>
 <style>
-:root{--navy:#1B2A4A;--red:#CC2229;--white:#FFFFFF;--ok:#22863A;--okbg:#D4EDDA;--muted:#7B90B8;--silver:#C8D0DF}
+:root{--navy:#1B2A4A;--red:#CC2229;--white:#FFFFFF;--ok:#22863A;--okbg:#D4EDDA;--muted:#7B90B8;--silver:#C8D0DF;--card:rgba(255,255,255,.06);--border:rgba(255,255,255,.1)}
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html,body{height:100%;background:var(--navy);font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:var(--white);padding-top:env(safe-area-inset-top,0px)}
 body{min-height:100vh;display:flex;flex-direction:column}
-header{background:var(--navy);border-bottom:3px solid var(--red);padding:14px 16px 12px;display:flex;align-items:center;gap:10px;flex-shrink:0}
+header{background:var(--navy);border-bottom:3px solid var(--red);padding:14px 16px 12px;display:flex;align-items:center;flex-shrink:0}
 .back{color:var(--silver);font-size:14px;text-decoration:none;padding:4px}
 header span{margin-left:auto;font-size:12px;color:var(--muted);font-family:'Courier New',monospace}
-.main{flex:1;padding:16px;display:flex;flex-direction:column;gap:16px}
+.main{flex:1;padding:16px;display:flex;flex-direction:column;gap:16px;padding-bottom:32px}
 .status-card{border-radius:16px;padding:20px 18px;display:flex;align-items:center;gap:16px;background:var(--okbg)}
 .status-icon{font-size:32px;flex-shrink:0}
 .status-h{font-size:21px;font-weight:700;color:var(--ok)}
 .status-p{font-size:12px;color:var(--ok);margin-top:3px}
-.detail-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:13px;overflow:hidden}
-.detail-row{display:flex;align-items:center;gap:12px;padding:12px 15px;border-bottom:1px solid rgba(255,255,255,.06)}
+.detail-card{background:var(--card);border:1px solid var(--border);border-radius:13px;overflow:hidden}
+.detail-row{display:flex;align-items:center;padding:12px 15px;border-bottom:1px solid var(--border)}
 .detail-row:last-child{border-bottom:none}
 .dl{font-size:10px;font-weight:600;flex:1;color:var(--muted)}
-.dv{font-size:14px;font-weight:600;flex:1}
+.dv{font-size:14px;font-weight:600;flex:2}
 .tier-pill{display:inline-block;background:var(--red);color:#fff;font-size:10px;font-weight:700;letter-spacing:.1em;padding:3px 10px;border-radius:20px}
-.fixture-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:13px;padding:14px 15px}
+.section-title{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
+.fixture-card{background:var(--card);border:1px solid var(--border);border-radius:13px;padding:14px 15px}
 .fx-label{font-size:10px;color:var(--muted);font-weight:600;margin-bottom:6px}
 .fx-name{font-size:16px;font-weight:700}
 .fx-date{font-size:12px;color:var(--muted);margin-top:2px}
-footer{text-align:center;padding:16px;font-size:11px;color:var(--muted);border-top:1px solid rgba(255,255,255,.06);flex-shrink:0}
-.btn{display:block;width:100%;padding:18px;border-radius:14px;border:none;font-size:17px;font-weight:700;cursor:pointer;transition:opacity .15s}
+.fx-venue{font-size:11px;color:var(--muted);margin-top:4px}
+footer{text-align:center;padding:16px;font-size:11px;color:var(--muted);border-top:1px solid var(--border);flex-shrink:0}
+.btn{display:block;width:100%;padding:18px;border-radius:14px;border:none;font-size:17px;font-weight:700;cursor:pointer}
 .btn-checkin{background:#22863A;color:#fff}
-.btn-done{background:#555;color:#aaa;cursor:default}
+.btn-done{background:#2a2a3a;color:#666;cursor:default}
 .btn-already{background:#7B2020;color:#ffaaaa;cursor:default}
 .warn{background:rgba(204,34,41,.1);border:1px solid rgba(204,34,41,.3);border-radius:10px;padding:12px 14px;font-size:13px;color:#ffaaaa;margin-top:4px}
 .warn-ok{background:rgba(34,134,58,.15);border-color:rgba(34,134,58,.4);color:#aaffbb}
+/* Results table */
+.results-table{width:100%;border-collapse:collapse}
+.results-table tr{border-bottom:1px solid var(--border)}
+.results-table tr:last-child{border-bottom:none}
+.results-table td{padding:10px 12px;font-size:13px}
+.md-col{font-size:10px;color:var(--muted);font-weight:700;white-space:nowrap;width:36px}
+.opp-col{flex:1}
+.ha-badge{display:inline-block;font-size:9px;font-weight:700;padding:2px 6px;border-radius:4px;margin-left:6px;vertical-align:middle}
+.ha-home{background:rgba(27,42,74,.8);color:var(--silver);border:1px solid var(--border)}
+.ha-away{background:rgba(204,34,41,.15);color:#ff9999;border:1px solid rgba(204,34,41,.3)}
+.result-badge{font-size:12px;font-weight:700;text-align:right;white-space:nowrap}
+.result-w{color:#4CAF50}
+.result-l{color:#f44336}
+.result-tbd{color:var(--muted)}
+/* Attendance */
+.att-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:6px}
+.att-dot{aspect-ratio:1;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;flex-direction:column;gap:1px}
+.att-attended{background:rgba(34,134,58,.3);border:1px solid rgba(34,134,58,.5);color:#aaffbb}
+.att-missed{background:rgba(255,255,255,.04);border:1px solid var(--border);color:var(--muted)}
+.att-future{background:rgba(255,255,255,.02);border:1px dashed rgba(255,255,255,.1);color:rgba(255,255,255,.2)}
+.att-summary{font-size:13px;color:var(--muted);margin-top:10px;text-align:center}
+.att-summary strong{color:var(--white)}
 </style>
 </head>
 <body>
@@ -50,6 +74,7 @@ footer{text-align:center;padding:16px;font-size:11px;color:var(--muted);border-t
       <div class="status-p">Season ticket confirmed &#8212; allow entry</div>
     </div>
   </div>
+
   <div class="detail-card">
     <div class="detail-row"><div class="dl">NAME</div><div class="dv">Eric Latim</div></div>
     <div class="detail-row"><div class="dl">MEMBER ID</div><div class="dv" style="font-family:'Courier New',monospace">KBFC023</div></div>
@@ -57,19 +82,57 @@ footer{text-align:center;padding:16px;font-size:11px;color:var(--muted);border-t
     <div class="detail-row"><div class="dl">VALID</div><div class="dv">Sep 2026 &#8211; Jun 2027</div></div>
     <div class="detail-row"><div class="dl">PHONE</div><div class="dv">0776******</div></div>
   </div>
+
   <div class="fixture-card">
     <div class="fx-label" id="fx-label">NEXT FIXTURE</div>
     <div class="fx-name" id="fx-name">Loading...</div>
     <div class="fx-date" id="fx-date"></div>
+    <div class="fx-venue" id="fx-venue"></div>
   </div>
+
   <div id="btn-area"></div>
+
+  <!-- Season Results -->
+  <div>
+    <div class="section-title">2026/27 Season Results</div>
+    <div class="detail-card">
+      <table class="results-table" id="results-table"></table>
+    </div>
+  </div>
+
+  <!-- Attendance (home games only) -->
+  <div id="attendance-section">
+    <div class="section-title">Your Attendance</div>
+    <div class="detail-card" style="padding:14px 12px">
+      <div class="att-grid" id="att-grid"></div>
+      <div class="att-summary" id="att-summary"></div>
+    </div>
+  </div>
+
 </div>
 <footer>Kiyinda Boys FC &#183; FUFA Big League &#183; 2026/27</footer>
+
 <script>
 const MEMBER_ID="KBFC023",MEMBER_NAME="Eric Latim";
 const SUPABASE_URL="https://trxosccbhjxxyymdxqxk.supabase.co",SUPABASE_KEY="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRyeG9zY2NiaGp4eHl5bWR4cXhrIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTEzMTEzODUsImV4cCI6MjEwNjg4NzM4NX0.hQWQUgOsEWmwKhEAV_VfT6GlVCHttIznPOu4XihoBG4";
-const FIXTURES=[{"date":"2026-09-27","id":"MD1","label":"MD1 vs Onduparaka FC"},{"date":"2026-10-11","id":"MD3","label":"MD3 vs Pakwach Young Stars FC"},{"date":"2026-10-25","id":"MD5","label":"MD5 vs SC Volcanoes"},{"date":"2026-11-08","id":"MD7","label":"MD7 vs Amus College FC"},{"date":"2026-11-22","id":"MD9","label":"MD9 vs Calvary FC"},{"date":"2026-12-06","id":"MD11","label":"MD11 vs Iganga United FC"}];
+const FIXTURES=[
+    {date:"2026-09-27",id:"MD1",opponent:"Onduparaka FC",ha:"HOME",venue:"Betharm City Recreation Centre",result:"3-1",outcome:"W"},
+    {date:"2026-10-04",id:"MD2",opponent:"Paidha Black Angels SC",ha:"AWAY",venue:"Bar Okoro - Nebbi",result:"0-1",outcome:"L"},
+    {date:"2026-10-11",id:"MD3",opponent:"Pakwach Young Stars FC",ha:"HOME",venue:"Betharm City Recreation Centre",result:"",outcome:""},
+    {date:"2026-10-18",id:"MD4",opponent:"Rwenzori Lions FC",ha:"AWAY",venue:"Nyamambuka Play Ground - Kasese",result:"",outcome:""},
+    {date:"2026-10-25",id:"MD5",opponent:"SC Volcanoes",ha:"HOME",venue:"Betharm City Recreation Centre",result:"",outcome:""},
+    {date:"2026-11-01",id:"MD6",opponent:"Young Elephant Academy FC",ha:"AWAY",venue:"Elephants Park - Nwoya",result:"",outcome:""},
+    {date:"2026-11-08",id:"MD7",opponent:"Amus College FC",ha:"HOME",venue:"Betharm City Recreation Centre",result:"",outcome:""},
+    {date:"2026-11-15",id:"MD8",opponent:"Buwambo United FC",ha:"AWAY",venue:"Mwererwe Matugga Ground",result:"",outcome:""},
+    {date:"2026-11-22",id:"MD9",opponent:"Calvary FC",ha:"HOME",venue:"Betharm City Recreation Centre",result:"",outcome:""},
+    {date:"2026-11-29",id:"MD10",opponent:"CATDA FC",ha:"AWAY",venue:"Hamz Stadium - Nakivubo",result:"",outcome:""},
+    {date:"2026-12-06",id:"MD11",opponent:"Iganga United FC",ha:"HOME",venue:"Betharm City Recreation Centre",result:"",outcome:""},
+    {date:"2026-12-13",id:"MD12",opponent:"Kaaro Karungi FC",ha:"AWAY",venue:"Kyamate Play Ground",result:"",outcome:""}
+  ];
+const HOME_IDS=["MD1","MD3","MD5","MD7","MD9","MD11"];
+
 function today(){return new Date().toISOString().slice(0,10);}
+
 function detectGame(){
   const t=today();
   const exact=FIXTURES.find(f=>f.date===t);
@@ -77,43 +140,117 @@ function detectGame(){
   const next=FIXTURES.filter(f=>f.date>t).sort((a,b)=>a.date.localeCompare(b.date));
   return next.length?next[0]:FIXTURES[FIXTURES.length-1];
 }
+
 function fmtDate(iso){
   return new Date(iso+'T00:00:00').toLocaleDateString('en-UG',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+}
+function fmtDateShort(iso){
+  return new Date(iso+'T00:00:00').toLocaleDateString('en-UG',{day:'numeric',month:'short'});
 }
 function fmtTime(iso){
   if(!iso)return '--';
   try{return new Date(iso).toLocaleTimeString('en-UG',{hour:'2-digit',minute:'2-digit',hour12:true,timeZone:'Africa/Kampala'});}
   catch(e){return '--';}
 }
+
 async function checkExisting(gameId){
   const r=await fetch(SUPABASE_URL+'/rest/v1/checkins?member_id=eq.'+MEMBER_ID+'&game_id=eq.'+gameId+'&select=checked_in_at&limit=1',
     {headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY}});
   const d=await r.json();
   return d.length?d[0].checked_in_at:null;
 }
+
+async function fetchAllAttendance(){
+  const r=await fetch(SUPABASE_URL+'/rest/v1/checkins?member_id=eq.'+MEMBER_ID+'&select=game_id',
+    {headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY}});
+  const d=await r.json();
+  return new Set(d.map(x=>x.game_id));
+}
+
 async function doCheckIn(game){
   const r=await fetch(SUPABASE_URL+'/rest/v1/checkins',{
     method:'POST',
     headers:{'apikey':SUPABASE_KEY,'Authorization':'Bearer '+SUPABASE_KEY,'Content-Type':'application/json','Prefer':'return=representation'},
-    body:JSON.stringify({member_id:MEMBER_ID,member_name:MEMBER_NAME,game_id:game.id,game_label:game.label})
+    body:JSON.stringify({member_id:MEMBER_ID,member_name:MEMBER_NAME,game_id:game.id,game_label:game.id+' vs '+game.opponent})
   });
   const d=await r.json();
   return d[0]?.checked_in_at||new Date().toISOString();
 }
+
+function renderResults(){
+  const t=today();
+  const tb=document.getElementById('results-table');
+  tb.innerHTML=FIXTURES.map(f=>{
+    const isHome=f.ha==='HOME';
+    const haBadge=`<span class="ha-badge ${isHome?'ha-home':'ha-away'}">${isHome?'H':'A'}</span>`;
+    let resultHtml='<span class="result-tbd">TBD</span>';
+    if(f.result){
+      const cls=f.outcome==='W'?'result-w':f.outcome==='L'?'result-l':'result-tbd';
+      resultHtml=`<span class="${cls}">${f.result} ${f.outcome}</span>`;
+    }
+    return `<tr>
+      <td class="md-col">${f.id}</td>
+      <td><div style="font-size:13px;font-weight:600">${f.opponent}${haBadge}</div><div style="font-size:11px;color:var(--muted);margin-top:2px">${fmtDateShort(f.date)} &middot; ${f.venue}</div></td>
+      <td class="result-badge">${resultHtml}</td>
+    </tr>`;
+  }).join('');
+}
+
+async function renderAttendance(attended){
+  const t=today();
+  const homeGames=FIXTURES.filter(f=>f.ha==='HOME');
+  const grid=document.getElementById('att-grid');
+  const summary=document.getElementById('att-summary');
+  let attendedCount=0;
+  let pastCount=0;
+  grid.innerHTML=homeGames.map(f=>{
+    const isPast=f.date<=t;
+    const wasAttended=attended.has(f.id);
+    if(isPast)pastCount++;
+    if(wasAttended)attendedCount++;
+    let cls,label;
+    if(wasAttended){cls='att-attended';label='&#10003;';}
+    else if(isPast){cls='att-missed';label='&#10007;';}
+    else{cls='att-future';label='';}
+    return `<div class="att-dot ${cls}" title="${f.id} vs ${f.opponent}">
+      <div style="font-size:8px;color:inherit;opacity:.7">${f.id}</div>
+      <div>${label}</div>
+    </div>`;
+  }).join('');
+  if(pastCount===0){
+    summary.innerHTML='Season yet to begin';
+  }else{
+    summary.innerHTML=`Attended <strong>${attendedCount}</strong> of <strong>${pastCount}</strong> home game${pastCount!==1?'s':''} played`;
+  }
+}
+
 async function init(){
   const game=detectGame();
   const isMatchday=game.date===today();
+  const isHome=game.ha==='HOME';
+
   document.getElementById('fx-label').textContent=isMatchday?"TODAY'S FIXTURE":"NEXT FIXTURE";
-  document.getElementById('fx-name').textContent=game.label;
+  document.getElementById('fx-name').textContent=(isHome?'':'@ ')+game.opponent;
   document.getElementById('fx-date').textContent=fmtDate(game.date);
+  document.getElementById('fx-venue').textContent=game.venue;
+
+  renderResults();
+
   const btnArea=document.getElementById('btn-area');
-  if(!isMatchday){
+
+  if(!isMatchday||!isHome){
     btnArea.innerHTML='<button class="btn btn-done" disabled>No home game today</button>';
+    const attended=await fetchAllAttendance();
+    renderAttendance(attended);
     return;
   }
+
   btnArea.innerHTML='<button class="btn btn-checkin" id="cibtn" disabled>Checking...</button>';
   const btn=document.getElementById('cibtn');
-  const existing=await checkExisting(game.id);
+
+  const [existing, attended]=await Promise.all([checkExisting(game.id),fetchAllAttendance()]);
+  renderAttendance(attended);
+
   if(existing){
     btn.className='btn btn-already';
     btn.textContent='Already checked in at '+fmtTime(existing);
@@ -143,6 +280,7 @@ async function init(){
     };
   }
 }
+
 init();
 </script>
 </body>
