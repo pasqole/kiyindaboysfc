@@ -308,6 +308,77 @@ footer {
   align-items: center;
   gap: 10px;
 }
+
+/* ── HIGHLIGHTS ── */
+.highlights-card {
+  display: flex;
+  gap: 16px;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--white);
+  transition: border-color .2s, transform .15s;
+  align-items: stretch;
+}
+.highlights-card:hover { border-color: var(--red); transform: translateY(-2px); }
+.hl-thumb {
+  position: relative;
+  width: 200px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+.hl-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  filter: brightness(.85);
+  transition: filter .2s;
+}
+.highlights-card:hover .hl-thumb img { filter: brightness(1); }
+.hl-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  color: #fff;
+  text-shadow: 0 2px 12px rgba(0,0,0,.6);
+  background: rgba(204,34,41,.25);
+  transition: background .2s;
+}
+.highlights-card:hover .hl-play { background: rgba(204,34,41,.5); }
+.hl-info {
+  padding: 20px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 6px;
+}
+.hl-badge {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--red);
+}
+.hl-title {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.1;
+}
+.hl-sub {
+  font-size: 12px;
+  color: var(--muted);
+}
+@media (max-width: 500px) {
+  .highlights-card { flex-direction: column; }
+  .hl-thumb { width: 100%; height: 180px; }
+}
 </style>
 
 <header>
@@ -426,9 +497,27 @@ footer {
   </div>
 </div>
 
+
+<div class="section">
+  <div class="section-label">Match Highlights</div>
+  <a class="highlights-card" href="https://www.youtube.com/watch?v=dlPYA72Onhs" target="_blank" rel="noopener">
+    <div class="hl-thumb">
+      <img src="https://img.youtube.com/vi/dlPYA72Onhs/maxresdefault.jpg" alt="MD1 Highlights vs Onduparaka FC" onerror="this.src='https://img.youtube.com/vi/dlPYA72Onhs/hqdefault.jpg'">
+      <div class="hl-play">&#9654;</div>
+    </div>
+    <div class="hl-info">
+      <div class="hl-badge">MD1 &middot; 27 Sept 2026</div>
+      <div class="hl-title">Kiyinda Boys FC 3&ndash;1 Onduparaka FC</div>
+      <div class="hl-sub">FUFA Big League &middot; Opening Day Highlights</div>
+    </div>
+  </a>
+</div>
+
 <footer>
   <span class="footer-brand">KIYINDA BOYS FC &mdash; FUFA Big League 2026/27</span>
   <div class="socials">
+    <a href="https://www.youtube.com/@KiyindaBoysFC" target="_blank" rel="noopener">YouTube</a>
+    <span>&middot;</span>
     <a href="https://www.instagram.com/kiyindaboysfc" target="_blank" rel="noopener">Instagram</a>
     <span>&middot;</span>
     <a href="https://www.facebook.com/kiyindaboysfc" target="_blank" rel="noopener">Facebook</a>
