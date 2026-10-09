@@ -3,14 +3,14 @@
 <style>
 /* Layout: full-bleed navy hero, content stacked center, footer strip */
 :root {
-  --navy: #1A1A7A;
-  --navydk: #0F0F52;
+  --navy: #18223A;
+  --navydk: #0E1628;
   --red: #E8151B;
   --white: #FFFFFF;
-  --silver: #C8C8E8;
-  --muted: #8080BB;
-  --card: rgba(255,255,255,.07);
-  --border: rgba(255,255,255,.12);
+  --silver: #C4CCDC;
+  --muted: #7A8BAA;
+  --card: rgba(255,255,255,.06);
+  --border: rgba(255,255,255,.1);
   --f-display: 'Barlow Condensed', 'Arial Narrow', sans-serif;
   --f-body: 'Barlow', system-ui, sans-serif;
 }
@@ -216,7 +216,7 @@ header {
 .section {
   padding: 0;
   width: 100%;
-  background: #16167A;
+  background: #16223C;
 }
 .section-inner {
   padding: 40px 24px;
@@ -245,7 +245,7 @@ header {
   border-bottom: 1px solid var(--border);
 }
 .fx-row:last-child { border-bottom: none; }
-.fx-row.home { border-left: 3px solid #4444CC; background: rgba(68,68,204,.05); }
+.fx-row.home { border-left: 3px solid #3D6FD4; background: rgba(61,111,212,.05); }
 .fx-row.away { border-left: 3px solid var(--red); background: rgba(232,21,27,.05); }
 .fx-md {
   font-size: 10px;
@@ -257,14 +257,14 @@ header {
 .fx-opp { font-size: 14px; font-weight: 600; flex: 1; }
 .fx-date { font-size: 11px; color: var(--muted); white-space: nowrap; }
 .ha { font-size: 9px; font-weight: 800; padding: 2px 7px; border-radius: 4px; margin-left: 6px; }
-.ha-h { background: #4444CC; color: #fff; }
+.ha-h { background: #3D6FD4; color: #fff; }
 .ha-a { background: var(--red); color: #fff; }
 .fx-result { font-size: 12px; font-weight: 700; white-space: nowrap; margin-left: 8px; }
 .w { color: #4CAF50; } .l { color: #FF4444; }
 
 /* ── FOOTER ── */
 footer {
-  background: #0F0F52;
+  background: #0E1628;
   border-top: 1px solid rgba(255,255,255,.07);
   padding: 20px 24px;
   display: flex;
@@ -319,9 +319,9 @@ footer {
 .highlights-card {
   display: flex;
   gap: 16px;
-  background: #1A1A8A;
+  background: #1A2640;
   border: 1px solid rgba(255,255,255,.1);
-  border-top: 3px solid #4444CC;
+  border-top: 3px solid #3D6FD4;
   border-radius: 14px;
   overflow: hidden;
   text-decoration: none;
@@ -389,7 +389,7 @@ footer {
 
 /* ── NEXT MATCH CARD ── */
 .next-match {
-  background: #13136A;
+  background: #121E34;
   border-top: 3px solid var(--red);
   border-bottom: 1px solid rgba(255,255,255,.07);
   padding: 28px 24px 24px;
@@ -479,7 +479,7 @@ footer {
 .stats {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  background: #0F0F52;
+  background: #0E1628;
   border-top: 2px solid rgba(232,21,27,.5);
   border-bottom: 1px solid rgba(255,255,255,.08);
   flex-shrink: 0;
@@ -551,7 +551,7 @@ footer {
       <span class="fx-date">4 Oct</span>
       <span class="fx-result l">0-1 L</span>
     </div>
-    <div class="fx-row home" style="background:rgba(68,68,204,.1);border-left-color:#6a9aff">
+    <div class="fx-row home" style="background:rgba(61,111,212,.1);border-left-color:#6a9aff">
       <span class="fx-md">MD3</span>
       <span class="fx-opp">Pakwach Young Stars FC<span class="ha ha-h">H</span></span>
       <span class="fx-date">11 Oct</span>
