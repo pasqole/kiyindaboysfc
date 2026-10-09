@@ -315,6 +315,86 @@ header {
 .w { color: #4ade80; }
 .l { color: #f87171; }
 
+
+/* ── LEAGUE TABLE ── */
+.league-table-wrap {
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,.1);
+}
+.league-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  min-width: 520px;
+}
+.league-table thead tr {
+  background: rgba(255,255,255,.06);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+.league-table th {
+  padding: 10px 12px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.4);
+  text-align: center;
+  white-space: nowrap;
+}
+.league-table th.lt-team { text-align: left; }
+.league-table td {
+  padding: 11px 12px;
+  text-align: center;
+  border-bottom: 1px solid rgba(255,255,255,.05);
+  color: rgba(255,255,255,.85);
+  white-space: nowrap;
+}
+.league-table tr:last-child td { border-bottom: none; }
+.lt-pos { color: rgba(255,255,255,.3) !important; font-size: 11px; width: 28px; }
+.lt-team { text-align: left !important; font-weight: 600; color: #fff !important; min-width: 180px; }
+.lt-pts { font-weight: 800 !important; color: #fff !important; }
+.lt-gd { font-weight: 700; }
+.lt-gd.pos { color: #4ade80; }
+.lt-gd.neg { color: #f87171; }
+.lt-gd.neu { color: rgba(255,255,255,.4); }
+.lt-kbfc td { background: rgba(232,21,27,.08); }
+.lt-kbfc .lt-team { color: #fff !important; }
+.lt-kbfc-dot {
+  display: inline-block;
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--red);
+  margin-right: 8px;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+.lt-highlight td { background: rgba(255,255,255,.04); }
+.lt-bottom td { opacity: .6; }
+.lt-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px; height: 18px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  margin-right: 8px;
+  background: #fbbf24;
+  color: #000;
+  vertical-align: middle;
+}
+.lt-legend {
+  display: flex;
+  gap: 20px;
+  margin-top: 10px;
+  font-size: 11px;
+  color: rgba(255,255,255,.35);
+  flex-wrap: wrap;
+}
+.lt-legend-item { display: flex; align-items: center; gap: 6px; }
+.lt-legend-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
+
 /* ── FOOTER ── */
 footer {
   background: #060911;
@@ -970,6 +1050,82 @@ tick();
   opacity: .4;
 }
 </style>
+
+<!-- League Table -->
+<div class="section" id="league-table"><div class="section-inner" style="max-width:760px">
+  <div class="section-label">FUFA Big League 2026/27 &mdash; Group A Standings</div>
+  <div class="league-table-wrap">
+    <table class="league-table">
+      <thead>
+        <tr>
+          <th class="lt-pos">#</th>
+          <th class="lt-team">Club</th>
+          <th>P</th><th>W</th><th>D</th><th>L</th>
+          <th>GF</th><th>GA</th><th>GD</th>
+          <th class="lt-pts">Pts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="lt-highlight">
+          <td class="lt-pos">1</td><td class="lt-team">Paidha Black Angels SC</td>
+          <td>2</td><td>2</td><td>0</td><td>0</td><td>2</td><td>0</td><td class="lt-gd pos">+2</td><td class="lt-pts">6</td>
+        </tr>
+        <tr>
+          <td class="lt-pos">2</td><td class="lt-team">Young Elephant Academy FC</td>
+          <td>2</td><td>1</td><td>1</td><td>0</td><td>3</td><td>1</td><td class="lt-gd pos">+2</td><td class="lt-pts">4</td>
+        </tr>
+        <tr>
+          <td class="lt-pos">3</td><td class="lt-team">Amus College FC</td>
+          <td>1</td><td>1</td><td>0</td><td>0</td><td>3</td><td>0</td><td class="lt-gd pos">+3</td><td class="lt-pts">3</td>
+        </tr>
+        <tr>
+          <td class="lt-pos">4</td><td class="lt-team">Pakwach Young Stars FC</td>
+          <td>2</td><td>1</td><td>0</td><td>1</td><td>3</td><td>1</td><td class="lt-gd pos">+2</td><td class="lt-pts">3</td>
+        </tr>
+        <tr class="lt-kbfc">
+          <td class="lt-pos">5</td><td class="lt-team"><span class="lt-kbfc-dot"></span>Kiyinda Boys FC</td>
+          <td>2</td><td>1</td><td>0</td><td>1</td><td>3</td><td>2</td><td class="lt-gd pos">+1</td><td class="lt-pts">3</td>
+        </tr>
+        <tr>
+          <td class="lt-pos">6</td><td class="lt-team">CATDA FC</td>
+          <td>2</td><td>1</td><td>0</td><td>1</td><td>2</td><td>1</td><td class="lt-gd pos">+1</td><td class="lt-pts">3</td>
+        </tr>
+        <tr>
+          <td class="lt-pos">7</td><td class="lt-team">SC Volcanoes</td>
+          <td>1</td><td>1</td><td>0</td><td>0</td><td>1</td><td>0</td><td class="lt-gd pos">+1</td><td class="lt-pts">3</td>
+        </tr>
+        <tr>
+          <td class="lt-pos">8</td><td class="lt-team">Calvary FC</td>
+          <td>2</td><td>1</td><td>0</td><td>1</td><td>2</td><td>2</td><td class="lt-gd neu">&plusmn;0</td><td class="lt-pts">3</td>
+        </tr>
+        <tr>
+          <td class="lt-pos">9</td><td class="lt-team">Iganga United FC</td>
+          <td>2</td><td>1</td><td>0</td><td>1</td><td>1</td><td>1</td><td class="lt-gd neu">&plusmn;0</td><td class="lt-pts">3</td>
+        </tr>
+        <tr>
+          <td class="lt-pos">10</td><td class="lt-team">Rwenzori Lions FC</td>
+          <td>2</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td class="lt-gd neg">&minus;1</td><td class="lt-pts">3</td>
+        </tr>
+        <tr>
+          <td class="lt-pos">11</td><td class="lt-team">Buwambo United FC</td>
+          <td>2</td><td>0</td><td>1</td><td>1</td><td>1</td><td>4</td><td class="lt-gd neg">&minus;3</td><td class="lt-pts">1</td>
+        </tr>
+        <tr>
+          <td class="lt-pos">12</td><td class="lt-team">Onduparaka FC</td>
+          <td>1</td><td>0</td><td>0</td><td>1</td><td>1</td><td>3</td><td class="lt-gd neg">&minus;2</td><td class="lt-pts">0</td>
+        </tr>
+        <tr class="lt-bottom">
+          <td class="lt-pos">13</td><td class="lt-team">Kaaro Karungi FC</td>
+          <td>3</td><td>0</td><td>0</td><td>3</td><td>0</td><td>6</td><td class="lt-gd neg">&minus;6</td><td class="lt-pts">0</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="lt-legend">
+    <span class="lt-legend-item"><span class="lt-legend-dot" style="background:var(--red)"></span> Kiyinda Boys FC</span>
+    <span class="lt-legend-item" style="color:rgba(255,255,255,.25)">Updated after MD2 &amp; late fixture (8 Oct 2026)</span>
+  </div>
+</div></div>
 
 <div id="news" class="coming-soon-section">
   <div class="cs-inner">
