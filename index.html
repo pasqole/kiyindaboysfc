@@ -214,10 +214,14 @@ header {
 
 /* ── SEASON CARD ── */
 .section {
+  padding: 0;
+  width: 100%;
+  background: #162238;
+}
+.section-inner {
   padding: 40px 24px;
   max-width: 640px;
   margin: 0 auto;
-  width: 100%;
 }
 .section-label {
   font-size: 10px;
@@ -260,7 +264,8 @@ header {
 
 /* ── FOOTER ── */
 footer {
-  border-top: 1px solid var(--border);
+  background: #0D1726;
+  border-top: 1px solid rgba(255,255,255,.07);
   padding: 20px 24px;
   display: flex;
   align-items: center;
@@ -314,8 +319,9 @@ footer {
 .highlights-card {
   display: flex;
   gap: 16px;
-  background: var(--card);
-  border: 1px solid var(--border);
+  background: #1a2840;
+  border: 1px solid rgba(255,255,255,.1);
+  border-top: 3px solid #4a7aff;
   border-radius: 14px;
   overflow: hidden;
   text-decoration: none;
@@ -383,9 +389,9 @@ footer {
 
 /* ── NEXT MATCH CARD ── */
 .next-match {
-  background: linear-gradient(135deg, rgba(204,34,41,.22) 0%, rgba(27,42,74,.5) 100%);
+  background: #111D33;
   border-top: 3px solid var(--red);
-  border-bottom: 1px solid rgba(204,34,41,.3);
+  border-bottom: 1px solid rgba(255,255,255,.07);
   padding: 28px 24px 24px;
   text-align: center;
 }
@@ -473,8 +479,9 @@ footer {
 .stats {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
+  background: #0D1726;
+  border-top: 2px solid rgba(204,34,41,.5);
+  border-bottom: 1px solid rgba(255,255,255,.08);
   flex-shrink: 0;
 }
 @media (max-width: 600px) {
@@ -496,7 +503,7 @@ footer {
   </h1>
   <p class="hero-sub">Betharm City Recreation Centre &middot; Kiwenda</p>
   <div class="cta-row">
-    <a class="btn-primary" href="/verify/">Member Verify &rarr;</a>
+    <a class="btn-primary" href="/verify/">Become a Member &rarr;</a>
   </div>
 </div>
 
@@ -529,7 +536,7 @@ footer {
   <div class="stat"><div class="stat-n">3</div><div class="stat-l">Points</div></div>
 </div>
 
-<div class="section">
+<div class="section"><div class="section-inner">
   <div class="section-label">2026/27 Fixtures &amp; Results</div>
   <div class="fixture-list">
     <div class="fx-row home">
@@ -605,10 +612,7 @@ footer {
       <span class="fx-result" style="color:var(--muted)">TBD</span>
     </div>
   </div>
-</div>
-
-
-<div class="section">
+</div></div><div class="section"><div class="section-inner">
   <div class="section-label">Match Highlights</div>
   <a class="highlights-card" href="https://www.youtube.com/watch?v=dlPYA72Onhs" target="_blank" rel="noopener">
     <div class="hl-thumb">
@@ -621,9 +625,7 @@ footer {
       <div class="hl-sub">FUFA Big League &middot; Opening Day Highlights</div>
     </div>
   </a>
-</div>
-
-<footer>
+</div></div><footer>
   <span class="footer-brand">KIYINDA BOYS FC &mdash; FUFA Big League 2026/27</span>
   <div class="socials">
     <a href="https://www.youtube.com/@KiyindaBoysFC" target="_blank" rel="noopener">YouTube</a>
