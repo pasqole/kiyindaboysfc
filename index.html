@@ -380,6 +380,107 @@ footer {
   .highlights-card { flex-direction: column; }
   .hl-thumb { width: 100%; height: 180px; }
 }
+
+/* ── NEXT MATCH CARD ── */
+.next-match {
+  background: linear-gradient(135deg, rgba(204,34,41,.15) 0%, rgba(27,42,74,.4) 100%);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid rgba(204,34,41,.3);
+  padding: 28px 24px 24px;
+  text-align: center;
+}
+.nm-label {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .16em;
+  text-transform: uppercase;
+  color: var(--red);
+  margin-bottom: 14px;
+}
+.nm-main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.nm-team {
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-size: clamp(16px, 3vw, 22px);
+  letter-spacing: .02em;
+  text-transform: uppercase;
+}
+.nm-vs {
+  font-family: var(--f-display);
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--muted);
+  letter-spacing: .1em;
+  background: var(--card);
+  border: 1px solid var(--border);
+  padding: 4px 10px;
+  border-radius: 6px;
+}
+.nm-meta {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 18px;
+}
+.nm-countdown {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+.nm-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 10px 18px 8px;
+  min-width: 72px;
+}
+.nm-n {
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-size: 36px;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  color: var(--white);
+}
+.nm-u {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.nm-sep {
+  font-family: var(--f-display);
+  font-weight: 900;
+  font-size: 28px;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+#countdown.finished .nm-n { color: var(--red); }
+
+/* ── STATS STRIP — 7 columns ── */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  .stats { grid-template-columns: repeat(4, 1fr); }
+  .stats .stat:nth-child(n+5) { border-top: 1px solid var(--border); }
+}
 </style>
 
 <header>
@@ -405,19 +506,33 @@ footer {
   </div>
 </div>
 
+<!-- Next Match Card -->
+<div class="next-match">
+  <div class="nm-label">Next Match &mdash; MD3</div>
+  <div class="nm-main">
+    <div class="nm-team">Kiyinda Boys FC</div>
+    <div class="nm-vs">vs</div>
+    <div class="nm-team">Pakwach Young Stars FC</div>
+  </div>
+  <div class="nm-meta">Sat 11 Oct 2026 &middot; Betharm City Recreation Centre, Kiwenda &middot; FUFA Big League</div>
+  <div class="nm-countdown" id="countdown">
+    <div class="nm-unit"><span class="nm-n" id="cd-h">--</span><span class="nm-u">hrs</span></div>
+    <div class="nm-sep">:</div>
+    <div class="nm-unit"><span class="nm-n" id="cd-m">--</span><span class="nm-u">min</span></div>
+    <div class="nm-sep">:</div>
+    <div class="nm-unit"><span class="nm-n" id="cd-s">--</span><span class="nm-u">sec</span></div>
+  </div>
+</div>
+
+<!-- Season Stats Strip -->
 <div class="stats">
-  <div class="stat">
-    <div class="stat-n">3<span>-1</span></div>
-    <div class="stat-l">MD1 vs Onduparaka</div>
-  </div>
-  <div class="stat">
-    <div class="stat-n" style="font-size:22px;padding-top:6px">MD3</div>
-    <div class="stat-l">Next &middot; 11 Oct</div>
-  </div>
-  <div class="stat">
-    <div class="stat-n">36</div>
-    <div class="stat-l">Ultras Members</div>
-  </div>
+  <div class="stat"><div class="stat-n">2</div><div class="stat-l">Played</div></div>
+  <div class="stat"><div class="stat-n">1</div><div class="stat-l">Won</div></div>
+  <div class="stat"><div class="stat-n">0</div><div class="stat-l">Drawn</div></div>
+  <div class="stat"><div class="stat-n">1</div><div class="stat-l">Lost</div></div>
+  <div class="stat"><div class="stat-n" style="color:#4CAF50">3</div><div class="stat-l">Goals For</div></div>
+  <div class="stat"><div class="stat-n" style="color:var(--red)">2</div><div class="stat-l">Goals Against</div></div>
+  <div class="stat"><div class="stat-n">3</div><div class="stat-l">Points</div></div>
 </div>
 
 <div class="section">
@@ -528,3 +643,31 @@ footer {
     <span>admin@kiyindaboysfc.com</span>
   </div>
 </footer>
+
+<script>
+// MD3 kickoff: Sat 11 Oct 2026, assume 3pm EAT (UTC+3) = 12:00 UTC
+var kickoff = new Date('2026-10-11T12:00:00Z');
+function pad(n){ return String(n).padStart(2,'0'); }
+function tick(){
+  var now = new Date();
+  var diff = kickoff - now;
+  var el = document.getElementById('countdown');
+  if(!el) return;
+  if(diff <= 0){
+    document.getElementById('cd-h').textContent = 'KO';
+    document.getElementById('cd-m').textContent = '--';
+    document.getElementById('cd-s').textContent = '--';
+    el.classList.add('finished');
+    return;
+  }
+  var h = Math.floor(diff/3600000);
+  var m = Math.floor((diff%3600000)/60000);
+  var s = Math.floor((diff%60000)/1000);
+  document.getElementById('cd-h').textContent = h;
+  document.getElementById('cd-m').textContent = pad(m);
+  document.getElementById('cd-s').textContent = pad(s);
+  setTimeout(tick, 1000);
+}
+tick();
+</script>
+
