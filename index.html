@@ -524,7 +524,7 @@ header {
 }
 .fx-row {
   display: grid;
-  grid-template-columns: 44px 1fr 80px 80px;
+  grid-template-columns: 44px 36px 1fr 110px 72px 80px;
   align-items: center;
   padding: 13px 16px;
   background: #151B2B;
@@ -541,6 +541,13 @@ header {
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--c-muted);
+}
+.fx-match-no {
+  font-size: 10px;
+  font-weight: 600;
+  color: rgba(255,255,255,.25);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
 }
 .fx-opp {
   font-size: 14px;
@@ -560,10 +567,18 @@ header {
 }
 .ha-h { background: rgba(226,27,45,.18); color: var(--c-red); }
 .ha-a { background: rgba(255,255,255,.08); color: var(--c-muted); }
+.fx-venue {
+  font-size: 11px;
+  color: rgba(255,255,255,.35);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .fx-date {
   font-size: 12px;
   color: var(--c-muted);
   text-align: right;
+  white-space: nowrap;
 }
 .fx-result {
   font-family: var(--f-display);
@@ -574,8 +589,13 @@ header {
 }
 .fx-result.w { color: var(--c-green); }
 .fx-result.l { color: #f87171; }
+@media (max-width: 860px) {
+  .fx-row { grid-template-columns: 44px 36px 1fr 72px 80px; }
+  .fx-venue { display: none; }
+}
 @media (max-width: 520px) {
-  .fx-row { grid-template-columns: 36px 1fr 64px; }
+  .fx-row { grid-template-columns: 36px 1fr 60px; }
+  .fx-match-no { display: none; }
   .fx-date { display: none; }
 }
 
@@ -1356,75 +1376,99 @@ footer {
   <div class="fixture-list">
     <div class="fx-row home">
       <span class="fx-md">MD1</span>
+      <span class="fx-match-no">#5</span>
       <span class="fx-opp">Onduparaka FC<span class="ha ha-h">H</span></span>
-      <span class="fx-date">27 Sept</span>
+      <span class="fx-venue">Betharm City Recreation Grounds</span>
+      <span class="fx-date">27 Sept 2026</span>
       <span class="fx-result w">3-1 W</span>
     </div>
     <div class="fx-row away">
       <span class="fx-md">MD2</span>
+      <span class="fx-match-no">#6</span>
       <span class="fx-opp">Paidha Black Angels SC<span class="ha ha-a">A</span></span>
-      <span class="fx-date">4 Oct</span>
+      <span class="fx-venue">Bar Okoro &ndash; Nebbi</span>
+      <span class="fx-date">4 Oct 2026</span>
       <span class="fx-result l">0-1 L</span>
     </div>
-    <div class="fx-row home" style="background:rgba(91,127,187,.1);border-left-color:#6a9aff">
+    <div class="fx-row home" style="background:rgba(91,127,187,.1);border-left:3px solid #6a9aff">
       <span class="fx-md">MD3</span>
+      <span class="fx-match-no">#17</span>
       <span class="fx-opp">Pakwach Young Stars FC<span class="ha ha-h">H</span></span>
-      <span class="fx-date">11 Oct</span>
-      <span class="fx-result" style="color:var(--muted)">TBD</span>
+      <span class="fx-venue">Betharm City Recreation Grounds</span>
+      <span class="fx-date">11 Oct 2026</span>
+      <span class="fx-result" style="color:rgba(255,255,255,.3)">16:00</span>
     </div>
     <div class="fx-row away">
       <span class="fx-md">MD4</span>
+      <span class="fx-match-no">#21</span>
       <span class="fx-opp">Rwenzori Lions FC<span class="ha ha-a">A</span></span>
-      <span class="fx-date">18 Oct</span>
-      <span class="fx-result" style="color:var(--muted)">TBD</span>
+      <span class="fx-venue">Nyamambuka Play Ground &ndash; Kasese</span>
+      <span class="fx-date">18 Oct 2026</span>
+      <span class="fx-result" style="color:rgba(255,255,255,.3)">TBD</span>
     </div>
     <div class="fx-row home">
       <span class="fx-md">MD5</span>
+      <span class="fx-match-no">#29</span>
       <span class="fx-opp">SC Volcanoes<span class="ha ha-h">H</span></span>
-      <span class="fx-date">25 Oct</span>
-      <span class="fx-result" style="color:var(--muted)">TBD</span>
+      <span class="fx-venue">Betharm City Recreation Grounds</span>
+      <span class="fx-date">25 Oct 2026</span>
+      <span class="fx-result" style="color:rgba(255,255,255,.3)">TBD</span>
     </div>
     <div class="fx-row away">
       <span class="fx-md">MD6</span>
+      <span class="fx-match-no">#35</span>
       <span class="fx-opp">Young Elephant Academy FC<span class="ha ha-a">A</span></span>
-      <span class="fx-date">1 Nov</span>
-      <span class="fx-result" style="color:var(--muted)">TBD</span>
+      <span class="fx-venue">Elephants Park &ndash; Nwoya</span>
+      <span class="fx-date">1 Nov 2026</span>
+      <span class="fx-result" style="color:rgba(255,255,255,.3)">TBD</span>
     </div>
     <div class="fx-row home">
       <span class="fx-md">MD7</span>
+      <span class="fx-match-no">#41</span>
       <span class="fx-opp">Amus College FC<span class="ha ha-h">H</span></span>
-      <span class="fx-date">8 Nov</span>
-      <span class="fx-result" style="color:var(--muted)">TBD</span>
+      <span class="fx-venue">Betharm City Recreation Grounds</span>
+      <span class="fx-date">8 Nov 2026</span>
+      <span class="fx-result" style="color:rgba(255,255,255,.3)">TBD</span>
     </div>
     <div class="fx-row away">
       <span class="fx-md">MD8</span>
+      <span class="fx-match-no">#49</span>
       <span class="fx-opp">Buwambo United FC<span class="ha ha-a">A</span></span>
-      <span class="fx-date">15 Nov</span>
-      <span class="fx-result" style="color:var(--muted)">TBD</span>
+      <span class="fx-venue">Mwererwe Matugga Ground</span>
+      <span class="fx-date">15 Nov 2026</span>
+      <span class="fx-result" style="color:rgba(255,255,255,.3)">TBD</span>
     </div>
     <div class="fx-row home">
       <span class="fx-md">MD9</span>
+      <span class="fx-match-no">#52</span>
       <span class="fx-opp">Calvary FC<span class="ha ha-h">H</span></span>
-      <span class="fx-date">22 Nov</span>
-      <span class="fx-result" style="color:var(--muted)">TBD</span>
+      <span class="fx-venue">Betharm City Recreation Grounds</span>
+      <span class="fx-date">22 Nov 2026</span>
+      <span class="fx-result" style="color:rgba(255,255,255,.3)">TBD</span>
     </div>
     <div class="fx-row away">
       <span class="fx-md">MD10</span>
+      <span class="fx-match-no">#60</span>
       <span class="fx-opp">CATDA FC<span class="ha ha-a">A</span></span>
-      <span class="fx-date">29 Nov</span>
-      <span class="fx-result" style="color:var(--muted)">TBD</span>
+      <span class="fx-venue">Hamz Stadium &ndash; Nakivubo</span>
+      <span class="fx-date">29 Nov 2026</span>
+      <span class="fx-result" style="color:rgba(255,255,255,.3)">TBD</span>
     </div>
     <div class="fx-row home">
       <span class="fx-md">MD11</span>
+      <span class="fx-match-no">#62</span>
       <span class="fx-opp">Iganga United FC<span class="ha ha-h">H</span></span>
-      <span class="fx-date">6 Dec</span>
-      <span class="fx-result" style="color:var(--muted)">TBD</span>
+      <span class="fx-venue">Betharm City Recreation Grounds</span>
+      <span class="fx-date">6 Dec 2026</span>
+      <span class="fx-result" style="color:rgba(255,255,255,.3)">TBD</span>
     </div>
     <div class="fx-row away">
       <span class="fx-md">MD12</span>
+      <span class="fx-match-no">#73</span>
       <span class="fx-opp">Kaaro Karungi FC<span class="ha ha-a">A</span></span>
-      <span class="fx-date">13 Dec</span>
-      <span class="fx-result" style="color:var(--muted)">TBD</span>
+      <span class="fx-venue">Kyamate Play Ground</span>
+      <span class="fx-date">13 Dec 2026</span>
+      <span class="fx-result" style="color:rgba(255,255,255,.3)">TBD</span>
     </div>
   </div>
 </div></div>
