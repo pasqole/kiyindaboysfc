@@ -476,84 +476,18 @@ header {
   .nm-right { padding: 0; }
 }
 
-/* ── SEASON STATISTICS STRIP ── */
-/* Slate-navy band — visually distinct from deep-navy Next Match above */
-/* and returns to dark-navy fixtures below */
-.stats-strip {
-  background: var(--c-slate-navy);
-  border-top: 2px solid var(--c-red);
-  border-bottom: none;
-  padding: 36px var(--sp-md);
-}
-.stats-strip-inner {
-  max-width: var(--max-w);
-  margin: 0 auto;
-}
-.stats-strip-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  margin-bottom: 24px;
-}
-.stats-strip-label {
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: .16em;
-  text-transform: uppercase;
-  color: var(--c-muted);
-}
-.stats-strip-header::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: rgba(255,255,255,.07);
-}
-.stats-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 0;
-}
-.stat-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 16px 8px;
-  border-right: 1px solid rgba(255,255,255,.06);
-}
-.stat-item:last-child { border-right: none; }
-.stat-n {
-  font-family: var(--f-display);
-  font-size: 40px;
-  font-weight: 900;
-  line-height: 1;
-  color: var(--c-white);
-  font-variant-numeric: tabular-nums;
-}
-.stat-l {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: .14em;
-  text-transform: uppercase;
-  color: var(--c-muted);
-  margin-top: 6px;
-  white-space: nowrap;
-}
-@media (max-width: 900px) {
-  .stats-grid { grid-template-columns: repeat(4, 1fr); }
-  .stat-item:nth-child(4) { border-right: none; }
-  .stat-item:nth-child(n+5) { border-top: 1px solid rgba(255,255,255,.06); }
-  .stat-item:nth-child(7) { border-right: none; }
-}
-@media (max-width: 520px) {
-  .stats-grid { grid-template-columns: repeat(2, 1fr); }
-  .stat-item { border-right: none; border-bottom: 1px solid rgba(255,255,255,.06); }
-  .stat-item:nth-child(2n) { border-left: 1px solid rgba(255,255,255,.06); }
-  .stat-item:nth-child(7) { border-bottom: none; }
-}
+
 
 /* ── FIXTURES & RESULTS ── */
 .section {
   padding: var(--sp-lg) var(--sp-md);
+  background: var(--c-dark-navy);
+}
+#fixtures-table {
+  background: #161d2e;
+  border-bottom: 2px solid rgba(255,255,255,.06);
+}
+#league-table {
   background: var(--c-dark-navy);
 }
 .section-inner {
@@ -1413,23 +1347,7 @@ footer {
     </div>
   </div>
 </div>
-<!-- ── SEASON STATISTICS STRIP ── -->
-<div class="stats-strip" id="stats">
-  <div class="stats-strip-inner">
-    <div class="stats-strip-header">
-      <span class="stats-strip-label">Season Statistics &mdash; 2026/27</span>
-    </div>
-    <div class="stats-grid">
-      <div class="stat-item"><span class="stat-n">2</span><span class="stat-l">Played</span></div>
-      <div class="stat-item"><span class="stat-n">1</span><span class="stat-l">Won</span></div>
-      <div class="stat-item"><span class="stat-n">0</span><span class="stat-l">Drawn</span></div>
-      <div class="stat-item"><span class="stat-n">1</span><span class="stat-l">Lost</span></div>
-      <div class="stat-item"><span class="stat-n">3</span><span class="stat-l">Goals For</span></div>
-      <div class="stat-item"><span class="stat-n">2</span><span class="stat-l">Goals Against</span></div>
-      <div class="stat-item"><span class="stat-n">3</span><span class="stat-l">Points</span></div>
-    </div>
-  </div>
-</div>
+
 
 
 
