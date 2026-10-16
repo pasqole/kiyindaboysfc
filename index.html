@@ -940,7 +940,7 @@ header {
 }
 .squad-slide-img-wrap {
   line-height: 0;
-  aspect-ratio: 16 / 9;
+  height: 520px;
   overflow: hidden;
 }
 .squad-slide-img {
@@ -949,6 +949,9 @@ header {
   object-fit: cover;
   object-position: center top;
   display: block;
+}
+@media (max-width: 600px) {
+  .squad-slide-img-wrap { height: 260px; }
 }
 .squad-slide-caption {
   padding: .875rem 1.25rem 1rem;
@@ -995,12 +998,8 @@ header {
   transition: color .2s;
 }
 .squad-arrow:hover { color: #fff; }
-.squad-slide-img-wrap--numbers {
-  aspect-ratio: unset;
-}
 .squad-slide-img--numbers {
-  height: auto;
-  object-fit: unset;
+  object-position: center top;
 }
 /* ── Sponsors ── */
 .sponsors-section {
