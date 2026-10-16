@@ -867,30 +867,33 @@ header {
   line-height: 1.7;
   margin-bottom: 28px;
 }
-.club-facts {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px;
+.club-links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   margin-bottom: 28px;
 }
-.club-fact {
+.club-link-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   background: rgba(255,255,255,.04);
-  border: 1px solid rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.09);
   border-radius: var(--radius-sm);
-  padding: 14px 16px;
-}
-.club-fact-n {
-  font-family: var(--f-display);
-  font-size: 28px;
-  font-weight: 900;
+  padding: 14px 18px;
   color: var(--c-white);
-  line-height: 1;
+  text-decoration: none;
+  font-size: .95rem;
+  font-weight: 600;
+  transition: background .2s, border-color .2s;
 }
-.club-fact-l {
-  font-size: 11px;
-  color: var(--c-muted);
-  margin-top: 4px;
+.club-link-btn:hover {
+  background: rgba(255,255,255,.08);
+  border-color: rgba(255,255,255,.2);
 }
+.club-link-icon { font-size: 1.1rem; }
+.club-link-btn span:nth-child(2) { flex: 1; }
+.club-link-arr { color: var(--c-muted); }
 @media (max-width: 780px) {
   .club-inner { grid-template-columns: 1fr; gap: 36px; }
 }
@@ -1756,23 +1759,17 @@ function squadStep(dir) { squadGoTo(_squadIdx + dir); }
         youthful energy with experienced leadership to build a squad capable of challenging
         for promotion.
       </p>
-      <div class="club-facts">
-        <div class="club-fact">
-          <div class="club-fact-n">2026</div>
-          <div class="club-fact-l">Season in the Big League</div>
-        </div>
-        <div class="club-fact">
-          <div class="club-fact-n">FUFA</div>
-          <div class="club-fact-l">Big League — Group A</div>
-        </div>
-        <div class="club-fact">
-          <div class="club-fact-n">12</div>
-          <div class="club-fact-l">Remaining Fixtures</div>
-        </div>
-        <div class="club-fact">
-          <div class="club-fact-n">#5</div>
-          <div class="club-fact-l">Current Group Standing</div>
-        </div>
+      <div class="club-links">
+        <a class="club-link-btn" href="https://fufa.or.ug/big-league" target="_blank" rel="noopener">
+          <span class="club-link-icon">📅</span>
+          <span>Fixtures &amp; Results</span>
+          <span class="club-link-arr">→</span>
+        </a>
+        <a class="club-link-btn" href="https://fufa.or.ug/big-league" target="_blank" rel="noopener">
+          <span class="club-link-icon">📊</span>
+          <span>League Standings</span>
+          <span class="club-link-arr">→</span>
+        </a>
       </div>
       <a class="btn-outline" href="#partners">Partner With Us &rarr;</a>
     </div>
