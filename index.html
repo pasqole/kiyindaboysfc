@@ -942,6 +942,7 @@ header {
   line-height: 0;
   height: 520px;
   overflow: hidden;
+  background: #111b2c;
 }
 .squad-slide-img {
   width: 100%;
@@ -998,8 +999,15 @@ header {
   transition: color .2s;
 }
 .squad-arrow:hover { color: #fff; }
+.squad-slide-img-wrap--numbers {
+  height: 700px;
+}
+@media (max-width: 600px) {
+  .squad-slide-img-wrap--numbers { height: 420px; }
+}
 .squad-slide-img--numbers {
-  object-position: center top;
+  object-fit: contain;
+  object-position: center center;
 }
 /* ── Sponsors ── */
 .sponsors-section {
