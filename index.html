@@ -703,6 +703,35 @@ header {
   border-radius: 50%;
 }
 
+
+.lt-form { white-space: nowrap; }
+.lt-form-hdr { white-space: nowrap; }
+.lt-form-w, .lt-form-l, .lt-form-d {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  margin-right: 2px;
+}
+.lt-form-w { background: #16a34a; color: #fff; }
+.lt-form-l { background: #dc2626; color: #fff; }
+.lt-form-d { background: rgba(255,255,255,.18); color: #fff; }
+.lt-top td { }
+.lt-relegate td { color: rgba(183,194,216,.45); }
+.lt-highlight { border-left: 3px solid #16a34a !important; }
+.lt-relegate .lt-pos { border-left: 3px solid #dc2626; }
+.lt-updated {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-transform: none;
+  color: var(--c-muted);
+  margin-left: 10px;
+}
 /* ── NEWS SECTION (light) ── */
 /* Provides editorial contrast after dark match sections */
 .news-section {
@@ -1643,7 +1672,7 @@ function squadStep(dir) { squadGoTo(_squadIdx + dir); }
 
 <!-- League Table -->
 <div class="section" id="league-table"><div class="section-inner" style="max-width:760px">
-  <div class="section-label">FUFA Big League 2026/27 &mdash; Standings</div>
+  <div class="section-label">FUFA Big League 2026/27 &mdash; Standings <span class="lt-updated">Updated 16 Oct 2026</span></div>
   <div class="league-table-wrap">
     <table class="league-table">
       <thead>
@@ -1653,60 +1682,61 @@ function squadStep(dir) { squadGoTo(_squadIdx + dir); }
           <th>P</th><th>W</th><th>D</th><th>L</th>
           <th>GF</th><th>GA</th><th>GD</th>
           <th class="lt-pts">Pts</th>
+          <th class="lt-form-hdr">Form</th>
         </tr>
       </thead>
-      <tbody>
-        <tr>
-          <td class="lt-pos">1</td><td class="lt-team">Paidha Black Angels SC</td>
-          <td>3</td><td>3</td><td>0</td><td>0</td><td>4</td><td>1</td><td class="lt-gd pos">+3</td><td class="lt-pts">9</td>
+            <tbody>
+        <tr class="lt-top">
+          <td class="lt-pos" class="lt-highlight">1</td><td class="lt-team">Paidha Black Angels SC</td>
+          <td>4</td><td>4</td><td>0</td><td>0</td><td>5</td><td>1</td><td class="lt-gd pos">+4</td><td class="lt-pts">12</td><td class="lt-form"><span class="lt-form-w">W</span><span class="lt-form-w">W</span><span class="lt-form-w">W</span><span class="lt-form-w">W</span></td>
+        </tr>
+        <tr class="lt-top">
+          <td class="lt-pos" class="lt-highlight">2</td><td class="lt-team">SC Volcanoes</td>
+          <td>2</td><td>2</td><td>0</td><td>0</td><td>2</td><td>0</td><td class="lt-gd pos">+2</td><td class="lt-pts">6</td><td class="lt-form"><span class="lt-form-w">W</span><span class="lt-form-w">W</span></td>
         </tr>
         <tr class="lt-kbfc">
-          <td class="lt-pos">2</td><td class="lt-team"><span class="lt-kbfc-dot"></span>Kiyinda Boys FC</td>
-          <td>3</td><td>2</td><td>0</td><td>1</td><td>5</td><td>2</td><td class="lt-gd pos">+3</td><td class="lt-pts">6</td>
+          <td class="lt-pos">3</td><td class="lt-team"><span class="lt-kbfc-dot"></span>Kiyinda Boys FC</td>
+          <td>3</td><td>2</td><td>0</td><td>1</td><td>5</td><td>2</td><td class="lt-gd pos">+3</td><td class="lt-pts">6</td><td class="lt-form"><span class="lt-form-w">W</span><span class="lt-form-l">L</span><span class="lt-form-w">W</span></td>
         </tr>
         <tr>
-          <td class="lt-pos">3</td><td class="lt-team">CATDA FC</td>
-          <td>3</td><td>2</td><td>0</td><td>1</td><td>3</td><td>1</td><td class="lt-gd pos">+2</td><td class="lt-pts">6</td>
+          <td class="lt-pos">4</td><td class="lt-team">CATDA FC</td>
+          <td>3</td><td>2</td><td>0</td><td>1</td><td>3</td><td>1</td><td class="lt-gd pos">+2</td><td class="lt-pts">6</td><td class="lt-form"><span class="lt-form-w">W</span><span class="lt-form-l">L</span><span class="lt-form-w">W</span></td>
         </tr>
         <tr>
-          <td class="lt-pos">4</td><td class="lt-team">SC Volcanoes</td>
-          <td>2</td><td>2</td><td>0</td><td>0</td><td>2</td><td>0</td><td class="lt-gd pos">+2</td><td class="lt-pts">6</td>
+          <td class="lt-pos">5</td><td class="lt-team">Young Elephants Academy FC</td>
+          <td>3</td><td>1</td><td>1</td><td>1</td><td>3</td><td>2</td><td class="lt-gd pos">+1</td><td class="lt-pts">4</td><td class="lt-form"><span class="lt-form-d">D</span><span class="lt-form-w">W</span><span class="lt-form-l">L</span></td>
         </tr>
         <tr>
-          <td class="lt-pos">5</td><td class="lt-team">Amus College FC</td>
-          <td>2</td><td>1</td><td>1</td><td>0</td><td>3</td><td>0</td><td class="lt-gd pos">+3</td><td class="lt-pts">4</td>
-        </tr>
-        <tr>
-          <td class="lt-pos">6</td><td class="lt-team">Young Elephant Academy FC</td>
-          <td>3</td><td>1</td><td>1</td><td>1</td><td>3</td><td>2</td><td class="lt-gd pos">+1</td><td class="lt-pts">4</td>
+          <td class="lt-pos">6</td><td class="lt-team">Amus College FC</td>
+          <td>2</td><td>1</td><td>1</td><td>0</td><td>3</td><td>0</td><td class="lt-gd pos">+3</td><td class="lt-pts">4</td><td class="lt-form"><span class="lt-form-w">W</span><span class="lt-form-d">D</span></td>
         </tr>
         <tr>
           <td class="lt-pos">7</td><td class="lt-team">Calvary FC</td>
-          <td>3</td><td>1</td><td>1</td><td>1</td><td>2</td><td>2</td><td class="lt-gd neu">&plusmn;0</td><td class="lt-pts">4</td>
+          <td>3</td><td>1</td><td>1</td><td>1</td><td>2</td><td>2</td><td class="lt-gd neu">&plusmn;0</td><td class="lt-pts">4</td><td class="lt-form"><span class="lt-form-l">L</span><span class="lt-form-w">W</span><span class="lt-form-d">D</span></td>
         </tr>
         <tr>
-          <td class="lt-pos">8</td><td class="lt-team">Pakwach Young Stars FC</td>
-          <td>3</td><td>1</td><td>0</td><td>2</td><td>3</td><td>3</td><td class="lt-gd neu">&plusmn;0</td><td class="lt-pts">3</td>
+          <td class="lt-pos">8</td><td class="lt-team">Rwenzori Lions FC</td>
+          <td>3</td><td>1</td><td>1</td><td>1</td><td>1</td><td>2</td><td class="lt-gd neg">-1</td><td class="lt-pts">4</td><td class="lt-form"><span class="lt-form-l">L</span><span class="lt-form-w">W</span><span class="lt-form-d">D</span></td>
         </tr>
         <tr>
           <td class="lt-pos">9</td><td class="lt-team">Iganga United FC</td>
-          <td>3</td><td>1</td><td>0</td><td>2</td><td>1</td><td>2</td><td class="lt-gd neg">&minus;1</td><td class="lt-pts">3</td>
+          <td>4</td><td>1</td><td>0</td><td>3</td><td>1</td><td>3</td><td class="lt-gd neg">-2</td><td class="lt-pts">3</td><td class="lt-form"><span class="lt-form-w">W</span><span class="lt-form-l">L</span><span class="lt-form-l">L</span><span class="lt-form-l">L</span></td>
         </tr>
         <tr>
-          <td class="lt-pos">10</td><td class="lt-team">Rwenzori Lions FC</td>
-          <td>2</td><td>1</td><td>0</td><td>1</td><td>1</td><td>2</td><td class="lt-gd neg">&minus;1</td><td class="lt-pts">3</td>
+          <td class="lt-pos">10</td><td class="lt-team">Pakwach Young Stars FC</td>
+          <td>3</td><td>1</td><td>0</td><td>2</td><td>3</td><td>3</td><td class="lt-gd neu">&plusmn;0</td><td class="lt-pts">3</td><td class="lt-form"><span class="lt-form-l">L</span><span class="lt-form-w">W</span><span class="lt-form-l">L</span></td>
         </tr>
         <tr>
           <td class="lt-pos">11</td><td class="lt-team">Buwambo United FC</td>
-          <td>2</td><td>0</td><td>1</td><td>1</td><td>1</td><td>4</td><td class="lt-gd neg">&minus;3</td><td class="lt-pts">1</td>
+          <td>2</td><td>0</td><td>1</td><td>1</td><td>1</td><td>4</td><td class="lt-gd neg">-3</td><td class="lt-pts">1</td><td class="lt-form"><span class="lt-form-d">D</span><span class="lt-form-l">L</span></td>
         </tr>
         <tr>
-          <td class="lt-pos">12</td><td class="lt-team">Onduparaka FC</td>
-          <td>2</td><td>0</td><td>0</td><td>2</td><td>2</td><td>5</td><td class="lt-gd neg">&minus;3</td><td class="lt-pts">0</td>
+          <td class="lt-pos">12</td><td class="lt-team">Kaaro Karungi FC</td>
+          <td>4</td><td>0</td><td>1</td><td>3</td><td>0</td><td>6</td><td class="lt-gd neg">-6</td><td class="lt-pts">1</td><td class="lt-form"><span class="lt-form-l">L</span><span class="lt-form-l">L</span><span class="lt-form-l">L</span><span class="lt-form-d">D</span></td>
         </tr>
         <tr class="lt-bottom">
-          <td class="lt-pos">13</td><td class="lt-team">Kaaro Karungi FC</td>
-          <td>3</td><td>0</td><td>0</td><td>3</td><td>0</td><td>6</td><td class="lt-gd neg">&minus;6</td><td class="lt-pts">0</td>
+          <td class="lt-pos" class="lt-relegate">13</td><td class="lt-team">Onduparaka FC</td>
+          <td>2</td><td>0</td><td>0</td><td>2</td><td>2</td><td>5</td><td class="lt-gd neg">-3</td><td class="lt-pts">0</td><td class="lt-form"><span class="lt-form-l">L</span><span class="lt-form-l">L</span></td>
         </tr>
       </tbody>
     </table>
