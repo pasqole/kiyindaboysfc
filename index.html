@@ -732,6 +732,46 @@ header {
   color: var(--c-muted);
   margin-left: 10px;
 }
+
+/* ── SEASON TICKET HOLDERS ── */
+.members-section {
+  background: #0a1019;
+  padding: var(--sp-xl) var(--sp-md);
+  border-top: 4px solid var(--c-orange, #e8640c);
+}
+.members-inner { max-width: 900px; margin: 0 auto; text-align: center; }
+.members-eyebrow { font-size: .75rem; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: var(--c-orange, #e8640c); margin-bottom: .5rem; }
+.members-heading { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; color: #fff; margin: 0 0 .5rem; }
+.members-sub { font-size: .9rem; color: rgba(183,194,216,.7); margin: 0 0 2rem; }
+.members-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+.member-card {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.07);
+  border-radius: 8px;
+  padding: 12px 14px;
+  gap: 4px;
+  transition: background .2s;
+}
+.member-card:hover { background: rgba(255,255,255,.07); }
+.member-id {
+  font-size: .68rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: var(--c-orange, #e8640c);
+  font-variant-numeric: tabular-nums;
+}
+.member-name {
+  font-size: .9rem;
+  font-weight: 600;
+  color: #fff;
+}
 /* ── NEWS SECTION (light) ── */
 /* Provides editorial contrast after dark match sections */
 .news-section {
@@ -1995,6 +2035,27 @@ function squadStep(dir) { squadGoTo(_squadIdx + dir); }
   </div>
 </div>
 
+
+<!-- ── SEASON TICKET HOLDERS ── -->
+<div class="members-section">
+  <div class="members-inner">
+    <div class="members-eyebrow">2026/27 Season</div>
+    <h2 class="members-heading">Season Ticket Holders</h2>
+    <p class="members-sub">Proud members of the Kiyinda Boys family. <strong>46</strong> supporters and counting.</p>
+    <div class="members-grid">
+        <div class="member-card"><span class="member-id">KBFC037</span><span class="member-name">Peter Mukozi</span></div>
+        <div class="member-card"><span class="member-id">KBFC038</span><span class="member-name">Dickens Akandwanaho</span></div>
+        <div class="member-card"><span class="member-id">KBFC039</span><span class="member-name">Harold Atukwatse</span></div>
+        <div class="member-card"><span class="member-id">KBFC040</span><span class="member-name">Timothy Lugayizi</span></div>
+        <div class="member-card"><span class="member-id">KBFC041</span><span class="member-name">Jackie Namyalo</span></div>
+        <div class="member-card"><span class="member-id">KBFC042</span><span class="member-name">Saleh Said</span></div>
+        <div class="member-card"><span class="member-id">KBFC043</span><span class="member-name">Boaz Musemeza</span></div>
+        <div class="member-card"><span class="member-id">KBFC044</span><span class="member-name">Bruce Mushabe</span></div>
+        <div class="member-card"><span class="member-id">KBFC045</span><span class="member-name">Andrew Atuhaire</span></div>
+        <div class="member-card"><span class="member-id">KBFC046</span><span class="member-name">Moses Mugerwa</span></div>
+    </div>
+  </div>
+</div>
 <!-- ── FOOTER ── -->
 <footer>
   <div class="footer-inner">
