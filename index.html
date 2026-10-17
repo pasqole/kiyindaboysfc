@@ -1541,6 +1541,21 @@ footer {
 .fixture-card-result--w { background: #16a34a; }
 .fixture-card-result--l { background: #dc2626; }
 .fixture-card-result--d { background: rgba(255,255,255,.18); }
+.fixture-ha {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 14px; height: 14px; border-radius: 3px;
+  font-size: .55rem; font-weight: 800; margin-right: 3px; vertical-align: middle;
+}
+.fixture-ha--h { background: var(--c-orange, #e8640c); color: #fff; }
+.fixture-ha--a { background: rgba(255,255,255,.15); color: rgba(255,255,255,.7); }
+.fixture-card--next {
+  background: rgba(232,100,12,.1);
+  border-left: 2px solid var(--c-orange, #e8640c);
+}
+.fixture-card--upcoming {
+  opacity: .7;
+}
+.fixture-card--upcoming:hover { opacity: 1; }
 @media (max-width: 600px) {
   .fixture-card { width: 180px; padding: 8px 12px; }
   .fixture-card-team { max-width: 70px; }
@@ -1586,7 +1601,7 @@ footer {
 <!-- Fixtures Strip -->
 <div class="fixtures-strip">
   <div class="fixtures-strip-track">
-    <!-- MD1: Past result -->
+    <!-- MD1: Result -->
     <div class="fixture-card">
       <div class="fixture-card-date">27 Sep 2026 &middot; MD1</div>
       <div class="fixture-card-teams">
@@ -1594,9 +1609,9 @@ footer {
         <span class="fixture-card-result fixture-card-result--w">3&ndash;1</span>
         <span class="fixture-card-team fixture-card-team--away">Onduparaka FC</span>
       </div>
-      <div class="fixture-card-meta">Betharm City Recreation Grounds &middot; Home</div>
+      <div class="fixture-card-meta"><span class="fixture-ha fixture-ha--h">H</span> Home</div>
     </div>
-    <!-- MD2: Past result -->
+    <!-- MD2: Result -->
     <div class="fixture-card">
       <div class="fixture-card-date">4 Oct 2026 &middot; MD2</div>
       <div class="fixture-card-teams">
@@ -1604,9 +1619,9 @@ footer {
         <span class="fixture-card-result fixture-card-result--l">1&ndash;0</span>
         <span class="fixture-card-team fixture-card-team--away">Kiyinda Boys</span>
       </div>
-      <div class="fixture-card-meta">Away</div>
+      <div class="fixture-card-meta"><span class="fixture-ha fixture-ha--a">A</span> Away</div>
     </div>
-    <!-- MD3: Past result -->
+    <!-- MD3: Result -->
     <div class="fixture-card">
       <div class="fixture-card-date">11 Oct 2026 &middot; MD3</div>
       <div class="fixture-card-teams">
@@ -1614,17 +1629,37 @@ footer {
         <span class="fixture-card-result fixture-card-result--w">2&ndash;0</span>
         <span class="fixture-card-team fixture-card-team--away">Pakwach Young Stars</span>
       </div>
-      <div class="fixture-card-meta">Betharm City Recreation Grounds &middot; Home</div>
+      <div class="fixture-card-meta"><span class="fixture-ha fixture-ha--h">H</span> Home</div>
     </div>
-    <!-- MD4: Upcoming (highlighted) -->
-    <div class="fixture-card" style="background:rgba(232,100,12,.08);border-left:2px solid var(--c-orange,#e8640c);">
-      <div class="fixture-card-date" style="color:#fff;opacity:.5;">Upcoming &middot; MD4</div>
+    <!-- MD4: Next (highlighted) -->
+    <div class="fixture-card fixture-card--next">
+      <div class="fixture-card-date">18 Oct 2026 &middot; MD4 &middot; <span style="color:var(--c-orange,#e8640c)">NEXT</span></div>
+      <div class="fixture-card-teams">
+        <span class="fixture-card-team fixture-card-team--home">Rwenzori Lions FC</span>
+        <span class="fixture-card-vs">vs</span>
+        <span class="fixture-card-team fixture-card-team--away">Kiyinda Boys</span>
+      </div>
+      <div class="fixture-card-meta"><span class="fixture-ha fixture-ha--a">A</span> Away</div>
+    </div>
+    <!-- MD5: Upcoming -->
+    <div class="fixture-card fixture-card--upcoming">
+      <div class="fixture-card-date">25 Oct 2026 &middot; MD5</div>
       <div class="fixture-card-teams">
         <span class="fixture-card-team fixture-card-team--home">Kiyinda Boys</span>
         <span class="fixture-card-vs">vs</span>
-        <span class="fixture-card-team fixture-card-team--away">TBD</span>
+        <span class="fixture-card-team fixture-card-team--away">SC Volcanoes</span>
       </div>
-      <div class="fixture-card-meta">Betharm City Recreation Grounds &middot; Home</div>
+      <div class="fixture-card-meta"><span class="fixture-ha fixture-ha--h">H</span> Home</div>
+    </div>
+    <!-- MD6: Upcoming -->
+    <div class="fixture-card fixture-card--upcoming">
+      <div class="fixture-card-date">1 Nov 2026 &middot; MD6</div>
+      <div class="fixture-card-teams">
+        <span class="fixture-card-team fixture-card-team--home">Young Elephant Academy</span>
+        <span class="fixture-card-vs">vs</span>
+        <span class="fixture-card-team fixture-card-team--away">Kiyinda Boys</span>
+      </div>
+      <div class="fixture-card-meta"><span class="fixture-ha fixture-ha--a">A</span> Away</div>
     </div>
   </div>
 </div>
