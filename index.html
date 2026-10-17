@@ -1556,6 +1556,128 @@ footer {
   opacity: .7;
 }
 .fixture-card--upcoming:hover { opacity: 1; }
+/* ── PARTNER SPOTLIGHT ── */
+.partner-spotlight {
+  background: #0a1018;
+  border-top: 1px solid rgba(255,255,255,.07);
+  border-bottom: 1px solid rgba(255,255,255,.07);
+  padding: 72px 0;
+}
+.partner-spotlight-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+.partner-spotlight-eyebrow {
+  font-size: .65rem;
+  font-weight: 800;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #7bac1c;
+  margin-bottom: 36px;
+}
+.partner-spotlight-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  gap: 64px;
+  align-items: center;
+}
+.partner-spotlight-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.partner-spotlight-wordmark {
+  font-size: 2.8rem;
+  font-weight: 900;
+  letter-spacing: -.03em;
+  color: #fff;
+  line-height: 1;
+}
+.partner-spotlight-dot {
+  color: #7bac1c;
+}
+.partner-spotlight-tagline {
+  font-size: .8rem;
+  font-weight: 600;
+  letter-spacing: .05em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.45);
+  margin-top: 8px;
+}
+.partner-spotlight-badges {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.partner-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: .75rem;
+  font-weight: 600;
+  color: rgba(255,255,255,.75);
+  background: rgba(123,172,28,.1);
+  border: 1px solid rgba(123,172,28,.25);
+  border-radius: 6px;
+  padding: 7px 12px;
+  width: fit-content;
+}
+.partner-badge-icon {
+  font-size: .85rem;
+}
+.partner-spotlight-heading {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.2;
+  margin: 0 0 20px;
+  text-wrap: balance;
+}
+.partner-spotlight-desc {
+  font-size: .95rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,.65);
+  margin: 0 0 16px;
+}
+.partner-spotlight-desc strong {
+  color: rgba(255,255,255,.9);
+}
+.partner-spotlight-community {
+  font-size: .9rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,.45);
+  font-style: italic;
+  margin: 0 0 32px;
+  border-left: 2px solid #394d0a;
+  padding-left: 16px;
+}
+.partner-spotlight-cta {
+  display: inline-block;
+  background: #394d0a;
+  color: #fff;
+  font-size: .85rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  text-decoration: none;
+  padding: 13px 28px;
+  border-radius: 6px;
+  transition: background .15s, transform .1s;
+}
+.partner-spotlight-cta:hover {
+  background: #4e6a0e;
+  transform: translateY(-1px);
+}
+@media (max-width: 768px) {
+  .partner-spotlight { padding: 48px 0; }
+  .partner-spotlight-inner { padding: 0 20px; }
+  .partner-spotlight-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+  .partner-spotlight-wordmark { font-size: 2.2rem; }
+  .partner-spotlight-heading { font-size: 1.5rem; }
+}
 @media (max-width: 600px) {
   .fixture-card { min-width: 150px; padding: 8px 12px; }
   .fixture-card-team { max-width: 70px; }
@@ -2156,6 +2278,38 @@ function squadStep(dir) { squadGoTo(_squadIdx + dir); }
     </div>
   </div>
 </div>
+
+<!-- ── PARTNER SPOTLIGHT: EKYAAPA ── -->
+<div class="partner-spotlight" id="partner-ekyaapa">
+  <div class="partner-spotlight-inner">
+    <div class="partner-spotlight-eyebrow">Club Partner</div>
+    <div class="partner-spotlight-grid">
+      <div class="partner-spotlight-brand">
+        <div class="partner-spotlight-logo-wrap">
+          <div class="partner-spotlight-wordmark">ekyaapa<span class="partner-spotlight-dot">.</span></div>
+          <div class="partner-spotlight-tagline">Uganda's Verified Land Marketplace</div>
+        </div>
+        <div class="partner-spotlight-badges">
+          <span class="partner-badge"><span class="partner-badge-icon">✓</span> NLIS Verified Listings</span>
+          <span class="partner-badge"><span class="partner-badge-icon">🔒</span> Escrow-Protected Payments</span>
+        </div>
+      </div>
+      <div class="partner-spotlight-body">
+        <h2 class="partner-spotlight-heading">Buy land with confidence.<br>Powered by Ekyaapa.</h2>
+        <p class="partner-spotlight-desc">
+          Kiyinda Boys FC is proud to be backed by <strong>Ekyaapa.com</strong> — Uganda's first verified land marketplace. Every listing on Ekyaapa is cross-checked against Ministry of Lands records, and payments are held in escrow until the title transfer is complete. Safe, transparent, and built for Ugandans.
+        </p>
+        <p class="partner-spotlight-community">
+          Like this club, Ekyaapa exists to serve the community — giving people the tools to secure their land, protect their families, and invest with confidence.
+        </p>
+        <a class="partner-spotlight-cta" href="https://ekyaapa.com" target="_blank" rel="noopener">
+          Find land in Uganda &rarr;
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <!-- ── MEMBERSHIP & SUPPORTER ENGAGEMENT (slate-navy) ── -->
 <div class="membership-section" id="membership">
