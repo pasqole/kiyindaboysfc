@@ -266,6 +266,127 @@ header {
 
 /* ── NEXT MATCH ── */
 /* Flows from hero with matching deep-navy palette + red top accent */
+
+/* ── HERO SPLIT LAYOUT ── */
+.hero-inner--split {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  max-width: 1100px;
+}
+.hero-left {
+  flex: 1;
+  min-width: 0;
+}
+.hero-left .hero-body {
+  font-size: clamp(15px,1.8vw,19px);
+  color: rgba(255,255,255,.82);
+  max-width: 520px;
+  line-height: 1.6;
+  margin-bottom: 32px;
+}
+.hero-news {
+  width: 320px;
+  flex-shrink: 0;
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 14px;
+  padding: 18px;
+  backdrop-filter: blur(8px);
+}
+.hero-news-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+.hero-news-label {
+  font-size: .7rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--c-orange, #e8640c);
+}
+.hero-news-more {
+  font-size: .75rem;
+  color: rgba(255,255,255,.5);
+  text-decoration: none;
+  transition: color .2s;
+}
+.hero-news-more:hover { color: #fff; }
+.hero-news-items { display: flex; flex-direction: column; gap: 10px; }
+.hero-news-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.07);
+  transition: background .2s;
+}
+.hero-news-item:hover { background: rgba(255,255,255,.09); }
+.hero-news-result {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: .75rem;
+  font-weight: 900;
+  flex-shrink: 0;
+}
+.hero-news-result--w { background: #16a34a; color: #fff; }
+.hero-news-result--l { background: #dc2626; color: #fff; }
+.hero-news-result--d { background: rgba(255,255,255,.2); color: #fff; }
+.hero-news-text { min-width: 0; }
+.hero-news-title {
+  font-size: .82rem;
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.hero-news-meta {
+  font-size: .7rem;
+  color: rgba(255,255,255,.45);
+  margin-top: 2px;
+}
+.hero-news-standing {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,.08);
+}
+.hero-news-pos {
+  font-size: 1.4rem;
+  font-weight: 900;
+  color: var(--c-orange, #e8640c);
+  line-height: 1;
+}
+.hero-news-pos sup { font-size: .6rem; vertical-align: super; }
+.hero-news-pts {
+  font-size: .85rem;
+  font-weight: 700;
+  color: #fff;
+}
+.hero-news-league {
+  font-size: .65rem;
+  color: rgba(255,255,255,.4);
+  margin-left: auto;
+  text-align: right;
+}
+@media (max-width: 800px) {
+  .hero-inner--split { flex-direction: column; }
+  .hero-news { width: 100%; box-sizing: border-box; }
+}
+
 .next-match {
   background: #FFFFFF;
   border-top: none;
@@ -1464,7 +1585,7 @@ footer {
   <nav class="main-nav">
     <a class="main-nav-link active" href="/">Home</a>
     <a class="main-nav-link" href="#fixtures">Fixtures</a>
-    <a class="main-nav-link" href="#stats">Stats</a>
+    <a class="main-nav-link" href="#league-table">Table</a>
     <a class="main-nav-link" href="#news">News</a>
     <a class="main-nav-link" href="#club">The Club</a>
     <a class="main-nav-link" href="#partners">Partners</a>
@@ -1490,15 +1611,53 @@ footer {
 </header>
 
 <div class="hero">
-  <div class="hero-inner">
-    <div class="hero-eyebrow">FUFA Big League &nbsp;&middot;&nbsp; 2026/27</div>
-    <h1 class="hero-title">
-      MORE THAN A CLUB.<br>A COMMUNITY.
-    </h1>
-    <p class="hero-body" style="font-size:clamp(15px,1.8vw,19px);color:rgba(255,255,255,.82);max-width:520px;line-height:1.6;margin-bottom:32px;">We play football with a clear vision to develop talent, build our community and create opportunities for our people.</p>
-    <div class="cta-row">
-      <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScMPtxC1MQBn4Zhf6dBFYuMFq7vyK9SWQ9_Ua-YahuF6_x4hg/viewform" target="_blank" rel="noopener">Become a Partner &rarr;</a>
-      <a class="btn-outline" href="#fixtures">View Fixtures</a>
+  <div class="hero-inner hero-inner--split">
+    <!-- Left: copy -->
+    <div class="hero-left">
+      <div class="hero-eyebrow">FUFA Big League &nbsp;&middot;&nbsp; 2026/27</div>
+      <h1 class="hero-title">
+        MORE THAN A CLUB.<br>A COMMUNITY.
+      </h1>
+      <p class="hero-body">We play football with a clear vision to develop talent, build our community and create opportunities for our people.</p>
+      <div class="cta-row">
+        <a class="btn-primary" href="https://docs.google.com/forms/d/e/1FAIpQLScMPtxC1MQBn4Zhf6dBFYuMFq7vyK9SWQ9_Ua-YahuF6_x4hg/viewform" target="_blank" rel="noopener">Become a Partner &rarr;</a>
+        <a class="btn-outline" href="#fixtures">View Fixtures</a>
+      </div>
+    </div>
+    <!-- Right: latest news -->
+    <div class="hero-news">
+      <div class="hero-news-header">
+        <span class="hero-news-label">Latest News</span>
+        <a class="hero-news-more" href="#news">See all &rarr;</a>
+      </div>
+      <div class="hero-news-items">
+        <a class="hero-news-item" href="#news">
+          <span class="hero-news-result hero-news-result--w">W</span>
+          <div class="hero-news-text">
+            <div class="hero-news-title">Kiyinda Boys FC 2&ndash;0 Pakwach Young Stars FC</div>
+            <div class="hero-news-meta">MD3 &middot; 11 October 2026</div>
+          </div>
+        </a>
+        <a class="hero-news-item" href="#news">
+          <span class="hero-news-result hero-news-result--l">L</span>
+          <div class="hero-news-text">
+            <div class="hero-news-title">Paidha Black Angels SC 1&ndash;0 Kiyinda Boys FC</div>
+            <div class="hero-news-meta">MD2 &middot; 4 October 2026</div>
+          </div>
+        </a>
+        <a class="hero-news-item" href="#news">
+          <span class="hero-news-result hero-news-result--w">W</span>
+          <div class="hero-news-text">
+            <div class="hero-news-title">Kiyinda Boys FC 3&ndash;1 Onduparaka FC</div>
+            <div class="hero-news-meta">MD1 &middot; 27 September 2026</div>
+          </div>
+        </a>
+      </div>
+      <div class="hero-news-standing">
+        <span class="hero-news-pos">3<sup>rd</sup></span>
+        <span class="hero-news-pts">6 pts</span>
+        <span class="hero-news-league">FUFA Big League 2026/27</span>
+      </div>
     </div>
   </div>
 </div>
