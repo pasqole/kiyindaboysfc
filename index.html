@@ -120,6 +120,15 @@ header {
 }
 .main-nav-link:hover { color: var(--c-red); }
 .main-nav-link.active { color: var(--c-red); border-bottom-color: var(--c-red); }
+.main-nav-link.nav-cta {
+  background: var(--c-red);
+  color: #fff;
+  border-radius: 4px;
+  padding: 6px 14px;
+  border-bottom: none;
+  margin-left: 6px;
+}
+.main-nav-link.nav-cta:hover { background: #b91c1c; color: #fff; }
 .header-socials { display: flex; align-items: center; gap: 12px; }
 .header-socials a { color: #4A5568; display: flex; align-items: center; transition: color .2s; text-decoration: none; }
 .header-socials a:hover { color: var(--c-red); }
@@ -1674,13 +1683,12 @@ footer {
     </div>
   </a>
   <nav class="main-nav">
-    <a class="main-nav-link active" href="/">Crest</a>
-    <a class="main-nav-link" href="#fixtures">Fixtures &amp; Results</a>
-    <a class="main-nav-link" href="#news">News</a>
-    <a class="main-nav-link" href="#club">The Club</a>
-    <a class="main-nav-link" href="#partners">Partners</a>
-    <a class="main-nav-link" href="#contact">Contact</a>
-    <a class="main-nav-link" href="/verify/">Member Verify</a>
+    <a class="main-nav-link active" href="/">Home</a>
+    <a class="main-nav-link" href="#club">Club</a>
+    <a class="main-nav-link" href="#squad">Team</a>
+    <a class="main-nav-link" href="#fixtures">Matches</a>
+    <a class="main-nav-link" href="#news">News &amp; Media</a>
+    <a class="main-nav-link nav-cta" href="#partners">Get Involved</a>
   </nav>
   <div class="header-right">
     <div class="header-socials">
