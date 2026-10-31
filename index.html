@@ -107,6 +107,7 @@ img{max-width:100%;display:block}
 .squad-filters{display:flex;gap:6px;flex-wrap:wrap}
 .squad-filter{border:1px solid rgba(12,10,75,0.25);background:transparent;color:#0c0a4b;padding:10px 16px;font-family:Archivo;font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;cursor:pointer;transition:all 0.2s}
 .squad-filter.active{border-color:#ef0510;background:#ef0510;color:#fff}
+.squad-hidden{display:none!important}
 .squad-grid{display:flex;flex-direction:column;gap:36px}
 .squad-group-label{font-family:'Big Shoulders Display';font-weight:900;font-size:13px;letter-spacing:0.14em;text-transform:uppercase;color:#5a5980;padding:0 0 10px;border-bottom:1px solid rgba(12,10,75,0.15);margin-bottom:12px;display:flex;align-items:center;gap:8px}
 .squad-group-count{background:#ef0510;color:#fff;font-family:Archivo;font-weight:700;font-size:10px;padding:2px 6px;border-radius:100px;letter-spacing:0.06em}
@@ -783,14 +784,15 @@ img{max-width:100%;display:block}
       document.querySelectorAll('.squad-filter').forEach(function(b) { b.classList.remove('active'); });
       btn.classList.add('active');
       var f = btn.dataset.filter;
-      // Show/hide individual cards
+      // Toggle cards via class (preserves display:flex)
       document.querySelectorAll('#squad-grid [data-pos]').forEach(function(card) {
-        card.style.display = (f === 'All' || card.dataset.pos === f) ? '' : 'none';
+        var show = (f === 'All' || card.dataset.pos === f);
+        card.classList.toggle('squad-hidden', !show);
       });
-      // Show/hide group labels when all cards in group hidden
+      // Show/hide groups
       document.querySelectorAll('.squad-group').forEach(function(group) {
-        var visible = group.querySelectorAll('[data-pos]:not([style*="none"])').length;
-        group.style.display = (f === 'All' || visible > 0) ? '' : 'none';
+        var hasVisible = group.querySelectorAll('[data-pos]:not(.squad-hidden)').length > 0;
+        group.classList.toggle('squad-hidden', f !== 'All' && !hasVisible);
       });
     });
   });
