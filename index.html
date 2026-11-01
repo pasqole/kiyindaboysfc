@@ -79,7 +79,7 @@ img{max-width:100%;display:block}
 
 /* League Table */
 .table-section{background:#ffffff;padding:clamp(64px,9vw,120px) clamp(20px,4vw,48px)}
-.table-inner{max-width:1360px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(32px,5vw,72px);align-items:start}
+.table-content-wrap{max-width:1360px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(32px,5vw,72px);align-items:start}
 .table-stat{display:flex;align-items:baseline;gap:14px;margin-top:8px}
 .table-stat-num{font-family:'Big Shoulders Display';font-weight:900;font-size:120px;line-height:0.8;color:#ef0510}
 .table-stat-label{font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#5a5980;line-height:1.5}
@@ -152,24 +152,24 @@ img{max-width:100%;display:block}
 }
 
 /* Fixtures & Results full table */
-.schedule-section{background:#f8f7fc;padding:clamp(64px,9vw,120px) clamp(20px,4vw,48px)}
+.schedule-section{background:#07062b;padding:clamp(64px,9vw,120px) clamp(20px,4vw,48px)}
 .schedule-inner{max-width:900px;margin:0 auto}
 .schedule-table{width:100%;border-collapse:collapse;margin-top:40px}
-.schedule-table th{font-family:'Big Shoulders Display';font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:#07062b;padding:10px 12px;text-align:left;border-bottom:2px solid #07062b}
-.schedule-table td{padding:14px 12px;font-size:14px;border-bottom:1px solid #e3e2ec;color:#0c0a4b;vertical-align:middle}
-.schedule-table tr.kbfc-row td{background:#fff}
-.sched-md{font-family:'Big Shoulders Display';font-weight:800;font-size:18px;color:#07062b}
+.schedule-table th{font-family:'Big Shoulders Display';font-weight:800;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);padding:10px 12px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.15)}
+.schedule-table td{padding:14px 12px;font-size:14px;border-bottom:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.85);vertical-align:middle}
+.schedule-table tr.kbfc-row td{background:rgba(255,255,255,0.06)}
+.sched-md{font-family:'Big Shoulders Display';font-weight:800;font-size:18px;color:#ffffff}
 .sched-ha{font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 7px;border-radius:3px}
 .sched-ha.home{background:#07062b;color:#fff}
-.sched-ha.away{background:#e3e2ec;color:#07062b}
-.sched-result.win{color:#07062b;font-weight:700}
-.sched-result.draw{color:#5a5980;font-weight:700}
+.sched-ha.away{background:rgba(255,255,255,0.15);color:#ffffff}
+.sched-result.win{color:#4ade80;font-weight:700}
+.sched-result.draw{color:rgba(255,255,255,0.5);font-weight:700}
 .sched-result.loss{color:#ef0510;font-weight:700}
 .sched-badge{display:inline-block;padding:3px 8px;font-size:12px;font-weight:700;letter-spacing:0.08em;border-radius:3px}
 .sched-badge.w{background:#07062b;color:#fff}
-.sched-badge.d{background:#e3e2ec;color:#07062b}
+.sched-badge.d{background:rgba(255,255,255,0.15);color:#ffffff}
 .sched-badge.l{background:#ef0510;color:#fff}
-.sched-upcoming{font-size:13px;color:#5a5980;font-style:italic}
+.sched-upcoming{font-size:13px;color:rgba(255,255,255,0.4);font-style:italic}
 /* Section backgrounds */
 .news-section{background:#ffffff}
 .table-section{background:#ffffff}
@@ -390,9 +390,9 @@ img{max-width:100%;display:block}
     <div style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:12px;">
       <div>
         <p style="font-family:'Big Shoulders Display';font-weight:800;font-size:12px;letter-spacing:0.18em;text-transform:uppercase;color:#ef0510;margin-bottom:8px;">2026/27 Season</p>
-        <h2 style="font-family:'Big Shoulders Display';font-weight:900;font-size:clamp(36px,6vw,60px);line-height:0.95;text-transform:uppercase;color:#07062b;">Fixtures &amp;<br>Results</h2>
+        <h2 style="font-family:'Big Shoulders Display';font-weight:900;font-size:clamp(36px,6vw,60px);line-height:0.95;text-transform:uppercase;color:#ffffff;">Fixtures &amp;<br>Results</h2>
       </div>
-      <p style="font-size:14px;color:#5a5980;">FUFA Big League &middot; Group A</p>
+      <p style="font-size:14px;color:rgba(255,255,255,0.6);">FUFA Big League &middot; Group A</p>
     </div>
     <table class="schedule-table">
       <thead>
@@ -523,7 +523,7 @@ img{max-width:100%;display:block}
 
 <!-- League Table -->
 <section id="table" class="table-section">
-  <div class="table-inner">
+  <div class="table-content-wrap">
   <div style="display:flex;flex-direction:column;gap:18px;">
     <span class="section-eyebrow">FUFA Big League 2026/27</span>
     <h2 class="section-heading">League Table</h2>
