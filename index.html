@@ -62,7 +62,7 @@ img{max-width:100%;display:block}
 .section-subtext{font-size:16px;line-height:1.55;color:#4a4970}
 
 /* News */
-.news-section{max-width:1360px;margin:0 auto;padding:clamp(64px,9vw,120px) clamp(20px,4vw,48px) 0}
+.news-section{background:#ffffff;padding:clamp(64px,9vw,120px) clamp(20px,4vw,48px)}
 .news-header{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;margin-bottom:32px}
 .news-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:20px}
 .news-card{display:flex;flex-direction:column;background:#f3f3f7;border-bottom:3px solid #ef0510;text-decoration:none;color:#0c0a4b;transition:background 0.2s}
@@ -78,7 +78,8 @@ img{max-width:100%;display:block}
 .news-card-yt:hover{color:#c8000d}
 
 /* League Table */
-.table-section{max-width:1360px;margin:0 auto;padding:clamp(64px,9vw,120px) clamp(20px,4vw,48px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(32px,5vw,72px);align-items:start}
+.table-section{background:#ffffff;padding:clamp(64px,9vw,120px) clamp(20px,4vw,48px)}
+.table-inner{max-width:1360px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:clamp(32px,5vw,72px);align-items:start}
 .table-stat{display:flex;align-items:baseline;gap:14px;margin-top:8px}
 .table-stat-num{font-family:'Big Shoulders Display';font-weight:900;font-size:120px;line-height:0.8;color:#ef0510}
 .table-stat-label{font-size:13px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#5a5980;line-height:1.5}
@@ -522,6 +523,7 @@ img{max-width:100%;display:block}
 
 <!-- League Table -->
 <section id="table" class="table-section">
+  <div class="table-inner">
   <div style="display:flex;flex-direction:column;gap:18px;">
     <span class="section-eyebrow">FUFA Big League 2026/27</span>
     <h2 class="section-heading">League Table</h2>
@@ -679,6 +681,7 @@ img{max-width:100%;display:block}
       <a href="#table" class="table-link">Full table</a>
     </div>
   </div>
+</div>
 </section>
 
 <!-- Club Section -->
