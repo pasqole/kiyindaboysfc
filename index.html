@@ -34,7 +34,10 @@ img{max-width:100%;display:block}
 
 /* Fixtures strip */
 .fixtures-strip{background:#ffffff;border-bottom:1px solid #e3e2ec}
-.fixtures-inner{max-width:1360px;margin:0 auto;padding:18px clamp(20px,4vw,48px);display:grid;grid-auto-flow:column;grid-auto-columns:minmax(240px,1fr);gap:12px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#d9d8e6 transparent}
+.fixtures-inner{max-width:1360px;margin:0 auto;padding:14px 16px;display:grid;grid-auto-flow:column;grid-auto-columns:minmax(200px,1fr);gap:10px;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#d9d8e6 transparent;-webkit-overflow-scrolling:touch;scroll-snap-type:x mandatory}
+.fixtures-inner>div{scroll-snap-align:start}
+@media(min-width:640px){.fixtures-inner{padding:18px clamp(20px,4vw,48px);grid-auto-columns:minmax(240px,1fr);gap:12px}}
+@media(max-width:639px){.fixtures-inner>div{padding:10px 12px!important}}
 
 /* Hero */
 .hero{position:relative;height:calc(100vh - 80px);min-height:560px;overflow:hidden;background:#070620}
